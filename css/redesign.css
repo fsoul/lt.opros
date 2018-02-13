@@ -1,0 +1,532 @@
+.reg_form_wrapper{
+    padding-left: 15px;
+    font-family: Sans-Serif;
+    font-size: 14px;
+}
+.reg_form_wrapper{
+    max-width: 600px;
+}
+.inp_wrap{
+    position: relative;
+    margin: 16px 0;
+    padding-left: 20px;
+}
+.inp_wrap label{
+    line-height: 25px;
+}
+.head_title{
+    /* Регистрационная форма TNS Opros */
+
+    font-family: Sans-Serif;
+    line-height: normal;
+    font-size: 28px;
+    color: #858585;
+    margin: 32px 0 0 0;
+}
+.head_title_hint{
+    /* все поля обязательны к заполнению */
+
+    font-family: Sans-Serif;
+    line-height: normal;
+    font-size: 12px;
+    color: #858585;
+    margin: 0;
+}
+.sub_title{
+    font-family: Sans-Serif;
+    line-height: normal;
+    font-size: 18px;
+    color: #333333;
+    margin: 24px 0;
+}
+.show_pass_rel{
+    line-height: 25px;
+    position: relative;
+}
+.show_pass{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 14px;
+    height: 25px;
+    cursor: pointer;
+    padding: 0 8px;
+    background: url("/css/images/redesign/eye_sprite.png") no-repeat;
+}
+.eyeon{
+    background-position: 50% -19px;
+}
+.eyeoff{
+    background-position: 50% 11px;
+}
+.g_captcha{
+    margin-bottom: 16px;
+    height: 78px;
+}
+.g_captcha_mock{
+    width: 304px;
+    height: 83px;
+    border: 1px solid black;
+    border-radius: 3px;
+    float: right;
+}
+.inp{
+    background: #FFFFFF;
+    border: 1px solid #DFDFDF;
+    box-sizing: border-box;
+    padding: 4px 16px 3px 16px;
+    border-radius: 3px;
+    width: 304px;
+    height: 25px !important;
+}
+.inp:focus{
+    border: 1px solid #2D9CDB;
+}
+.inp_select{
+    background: url("/css/images/redesign/dropdown.png")no-repeat center right 10px;
+}
+.pass_inp{
+    padding: 4px 24px 3px 16px;
+}
+.s_wrap{
+    margin-top: 32px;
+}
+.section_wrap{
+    margin-bottom: 40px;
+}
+.section_wrap:last-child {
+    margin-bottom: 8px;
+}
+.r_inp_group{
+    width: 304px;
+}
+.i_block{
+    display: inline-block;
+    margin-right: 25px;
+}
+input[type=radio]{
+    width: 18px;
+    height: 18px;
+}
+.bd_group{
+    width: 304px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.bd_inp_wrap, .bd_inp_wrap_last{
+    display: inline-block;
+}
+.bd_inp_wrap input{
+    width: 75px;
+    text-indent: 1px;
+}
+.bd_inp_wrap_last input{
+    width: 110px;
+}
+.bd_inp_wrap:after{
+    content: "/";
+    margin: 0 6px;
+}
+.r_float{
+    float: right;
+}
+.submit_btn{
+    position: relative;
+    margin-bottom: 10px;
+}
+.submit_btn button{
+    width: 304px;
+    height: 41px;
+    background: #E4007D;
+    border: none;
+    border-radius: 2px;
+    color: #fff;
+    box-shadow: 0 2px 0 #990054;
+}
+.submit_btn button[disabled]{
+    background: #dfdfdf;
+    box-shadow: 0 2px 0 #B5B5B5;
+}
+.user_agreement{
+    width: 306px;
+    float: right;
+    text-align: center;
+    margin-bottom: 16px;
+}
+.user_agreement p{
+    margin: 0;
+    font-size: 14px;
+    line-height: 16px;
+    color: #B7B7B7;
+}
+.user_agreement p a {
+    color: #2D9CDB;
+}
+#reg_submit_btn{
+    margin-bottom: 59px;
+}
+
+/*Custom radio buttons*/
+.cstm_radio{
+    position: relative;
+}
+.cstm_radio label{
+    padding-left: 26px;
+    position: relative;
+    z-index: 6;
+}
+input[type=radio]{
+    position: absolute;
+    visibility: hidden;
+}
+.check{
+    display: block;
+    position: absolute;
+    border: 1px solid #B0B0B0;
+    border-radius: 100%;
+    height: 18px;
+    width: 18px;
+    top: 0;
+    left: 0;
+    z-index: 5;
+    transition: border .25s linear;
+    -webkit-transition: border .25s linear;
+}
+.check::before {
+    display: block;
+    position: absolute;
+    content: '';
+    border-radius: 100%;
+    height: 10px;
+    width: 10px;
+    top: 4px;
+    left: 4px;
+    margin: auto;
+    transition: background 0.25s linear;
+    -webkit-transition: background 0.25s linear;
+}
+input[type=radio]:checked ~ .check {
+    border: 1px solid #E4007D;
+}
+input[type=radio]:checked ~ .check::before{
+    background: #E4007D;
+}
+.warning{
+    border: 1px solid #EB5757 !important;
+}
+.error_flag.warning .triangle{
+    border-right: 16px solid #EB5757;
+}
+.hint.valid_hint .triangle{
+    border-right: 16px solid #D5D5D5;
+}
+.error_flag.warning{
+    right: -358px;
+    color: #000;
+}
+.hint, .error_flag{
+    position: absolute;
+    top: -10px;
+    right: -360px;
+    width: 310px;
+    padding: 12px 16px;
+    background: #fff;
+    border: 1px solid #D5D5D5;
+    border-radius: 5px;
+    box-shadow: 0px 3px 5px rgba(133, 133, 133, 0.25);
+    transition: background 0.25s linear;
+}
+.hint.valid_hint{
+    right: -380px;
+}
+.hint{
+    z-index: 17;
+}
+.error_flag{
+    z-index: 16;
+}
+.triangle {
+    position: absolute;
+    top: 10px;
+    left: -16px;
+    width: 0;
+    height: 0;
+    border-top: 8px solid transparent;
+    border-right: 16px solid #D5D5D5;
+    border-bottom: 8px solid transparent;
+}
+.triangle:before{
+    content: '';
+    position: absolute;
+    top: -7px;
+    left: 2px;
+    width: 0;
+    height: 0;
+    border-top: 7px solid transparent;
+    border-right: 14px solid white;
+    border-bottom: 7px solid transparent;
+}
+.warning_i{
+    position: absolute;
+    top: 0;
+    right: -25px;
+    width: 25px;
+    height: 25px;
+}
+.search_wrap{
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.cityList{
+    position: absolute;
+    top: 9px;
+    right: -1px;
+    background: #FAFAFA;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.25);
+    z-index: 6;
+    padding: 0;
+    width: 306px;
+}
+.li_wrap{
+    position: relative;
+    max-height: 210px;
+    padding-left: 8px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    background: #FAFAFA;
+    z-index: 7;
+}
+.search_hint{
+    padding-left: 8px;
+    color: #797575;
+}
+.cityList li{
+    list-style: none;
+    margin-bottom: 10px;
+    padding-left: 8px;
+    position: relative;
+}
+.city:hover{
+    cursor: pointer;
+    background: #EBEBEB;
+}
+#reg_residence{
+    position: relative;
+    z-index: 7;
+}
+#search_inp{
+    width: 240px;
+    height: 46px;
+    padding: 0 34px 0 16px;
+    background: #fff url(/css/images/redesign/seacrh.png)no-repeat right 16px center;
+    border: none;
+    margin: 13px 0 10px 8px;
+}
+.invis{
+    display: none;
+}
+.underline{
+    position: absolute;
+    top: 0;
+    left: 8px;
+    text-decoration: underline;
+    color: #4c4c4c;
+}
+#know_about{
+    color: #797575;
+}
+#know_about>option:first-child{
+    display: none;
+}
+#know_about>option{
+    color: #333;
+}
+.inp_textarea{
+    margin: 16px 0;
+    width: 304px;
+}
+#know_about_another{
+    width: 270px;
+    height: 169px;
+    border-radius: 3px;
+    background: #fff;
+    padding: 14px 16px;
+    resize: none;
+}
+.loader{
+    position: absolute;
+    top: 4px;
+    right: -22px;
+    width: 18px;
+    height: 18px;
+    z-index: 90;
+    /*top: 6px;*/
+    /*right: 8px;*/
+    /*width: 13px;*/
+    /*height: 13px;*/
+    background: #fff url("/css/images/redesign/13x13-loader.gif")no-repeat center;
+}
+.right_sidebar_title{
+    color: #EC008C;
+    font-size: 24px;
+}
+#agr_rul_conf{
+    margin-right: 5px;
+}
+
+/* mobile redesign */
+
+.m_form{
+    padding: 0 15px;
+}
+.m_form .inp_wrap{
+    padding-left: 0;
+}
+.m_form .inp{
+    width: 100%;
+    height: 38px !important;
+    font-size: 16px;
+}
+.m_form .reg_submit_btn{
+    height: 46px;
+}
+.m_form .submit_btn{
+    margin: 16px 0;
+}
+.m_form .submit, .m_form textarea{
+    width: 100%;
+}
+.m_form .g_captcha{
+    display: table;
+    margin: 0 auto 16px auto;
+}
+.m_form .inp_field{
+    position: relative;
+    height: 38px;
+}
+.m_form .warning_i {
+    top: 50%;
+    margin-top: -12px;
+    right: -22px;
+}
+.m_form .show_pass{
+    top: 50%;
+    margin-top: -18px;
+    right: 0;
+    padding: 0;
+    width: 38px;
+    height: 38px;
+}
+.m_form .eyeon{
+    background-position: 50% -15px;
+}
+.m_form .eyeoff{
+    background-position: 50% 15px;
+}
+.m_form .loader{
+    top: 9px;
+    right: -18px;
+}
+.m_error_flag{
+    width: 70%;
+    position: relative;
+    top: 4px;
+    left: 100%;
+    margin-left: -70%;
+    z-index: 190;
+    background: white;
+    padding: 12px 15px 12px 16px;
+    border-radius: 3px;
+    box-shadow: 0px 3px 5px rgba(133, 133, 133, 0.25);
+    transition: background 0.25s linear;
+}
+.triangle_bottom {
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 16px solid #EB5757;
+    position: absolute;
+    bottom: -16px;
+    right: 20px;
+    background: url("/css/images/redesign/triangle_shadow.png")no-repeat;
+    background-position: -13px -17px;
+}
+.triangle_bottom:before {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 16px solid #fff;
+    bottom: 2px;
+    right: -8px;
+}
+.m_form .check::before{
+    top: 3px;
+    left: 3px;
+}
+.m_form .cityList {
+    top: 38px;
+    right: 0;
+    z-index: 901;
+    width: 100%;
+}
+.m_form .search_wrap {
+    width: 100%;
+}
+.m_form #reg_residence, .m_form #know_about{
+    font-size: 16px;
+}
+.m_form #search_inp {
+    width: 95%;
+    font-size: 16px;
+}
+.m_form .inp_textarea, .m_form #know_about_another {
+    width: 100%;
+    font-size: 16px;
+}
+.m_form .section_wrap{
+    display: none;
+}
+.m_form .section_wrap[data-section="0"]{
+    display: block;
+}
+.m_form .user_agreement{
+    width: 100%;
+    float: none;
+}
+.m_form .submit_btn button{
+    width: 100%;
+}
+.m_form .user_agreement .m_error_flag{
+    top: -10px;
+}
+.m_form .submit_btn .m_error_flag{
+    top: -15px;
+}
+.m_form .cityList li {
+    height: 36px;
+}
+.m_form .inp_select {
+    background-image: none;
+}
+#page_comment .duk, .duk{
+    font-weight: bold;
+    font-size: 13px;
+    color: #333;
+}
+#page_comment .duk_desc{
+    font-size: 13px;
+    color: #333;
+}
+.duk-accent{
+    color: #EC008C;
+}
+.right_block-title{
+    color: #EC008C;
+    font-size: 18px;
+}

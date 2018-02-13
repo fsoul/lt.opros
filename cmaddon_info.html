@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <h1 class="logo">
+            <a href="/" title="TNS"><img src="cmaddon/tns-logo.jpg" alt="TNS"></a>
+        </h1>
+    </div>
+    <h3 id="placeholder">Ожидание плагина...</h3>
+    <h3 id="error_message" style="display: none;">Не удалось получить доступ к плагину.</h3>
+    <table id="table_info" style="display: none;">
+        <tr>
+            <td>Версия:</td>
+            <td id="version"></td>
+        </tr>
+        <tr>
+            <td>Дата генерации PLID:</td>
+            <td id="plid_date"></td>
+        </tr>
+        <tr>
+            <td>PLID:</td>
+            <td id="plid"></td>
+        </tr>
+        <tr>
+            <td>ID пользователя:</td>
+            <td id="apc"></td>
+        </tr>
+        <tr>
+            <td>Дата последней проверки:</td>
+            <td id="last_check"></td>
+        </tr>
+        <tr>
+            <td>Дата следующей проверки:</td>
+            <td id="next_check"></td>
+        </tr>
+        <tr>
+            <td>Дата последней ошибки:</td>
+            <td id="last_error"></td>
+        </tr>
+        <tr>
+            <td>Текущее время:</td>
+            <td id="current_time"></td>
+        </tr>
+    </table>
+</div>
+<script>
+
+    window.addEventListener('message', function (message) {
+        if (message.data.msgtype == "addon_info") {
+            renderInfo(message.data.data);
+            clearTimeout(timeout);
+        }
+    });
+
+    function renderInfo(data) {
+        $('placeholder').style.display = 'none';
+        $('table_info').style.display = 'block';
+        $('version').innerText = data.addon_info;
+        $('last_check').innerText = format(new Date(data.last_check*1000));
+        $('next_check').innerText = format(new Date(data.last_check*1000 + 24*60*60*1000));
+        $('plid_date').innerText = format(parsePlidDate(data.plid));
+        $('plid').innerText = data.plid;
+        $('apc').innerText = data.respondentId || '-';
+        $('current_time').innerText = format(new Date());
+        $('last_error').innerText = data.last_error && data.last_error.time
+                ? format(new Date(data.last_error.time))
+                : '-';
+    }
+    var timeout = setTimeout(function () {
+        $('placeholder').style.display = 'none';
+        $('error_message').style.display = 'block';
+    }, 60*1000);
+
+    var $ = function (id) {
+        return document.getElementById(id);
+    };
+
+    function format(x) {
+        var y = 'yyyy-MM-dd hh:mm:ss';
+        var z = {
+            M: x.getMonth() + 1,
+            d: x.getDate(),
+            h: x.getHours(),
+            m: x.getMinutes(),
+            s: x.getSeconds()
+        };
+        y = y.replace(/(M+|d+|h+|m+|s+)/g, function(v) {
+            return ((v.length > 1 ? "0" : "") + eval('z.' + v.slice(-1))).slice(-2)
+        });
+
+        return y.replace(/(y+)/g, function(v) {
+            return x.getFullYear().toString().slice(-v.length)
+        });
+    }
+
+    function parsePlidDate(plid) {
+        if (plid.toString().length >= 11) {
+            var timestamp = plid.substring(1, 11);
+            return new Date(timestamp * 1000);
+        } else {
+            return '-';
+        }
+    }
+</script>
+<style>
+    .container {
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+        max-width: 984px;
+    }
+</style>
+</body>
+
+</html>
