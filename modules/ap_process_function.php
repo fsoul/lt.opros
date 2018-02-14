@@ -254,7 +254,6 @@ function ap_process_reffer_form()
         else
         {
 //function mail_respondent($to_email, $subject, $message, $hash_code, $page_code, $first_name, $last_name, $sex_=1)
-            die(5);
             $res = mail_respondent($_POST['invitation_to_email'], cms('reffer_email_subject'), cms('reffer_email_body'), get_reffer_link(), ap_get_respondent_first_name(), ap_get_respondent_last_name());
 
             if (!$res)
@@ -295,7 +294,6 @@ function ap_process_respondent_activate()
                 if ($res)
                 {
                     $info = $resp->Get_Info($info['ap_respondent_id_']);
-                    die(6);
                     mail_respondent($info['email_'], page_cms('email_subject'), page_cms('email_body'), get_href(57), $info['first_name_'], $info['last_name_'], $info['sex_']);
 
                     $url = get_href(68);
@@ -480,7 +478,6 @@ function ap_process_password_reminder_form()
                 if ($hash_code)
                 {
                     $info = $resp->Get_Info_By_Email($_POST['email_']);
-                    die('1');
                     mail_respondent($_POST['email_'], page_cms('email_subject'), page_cms('email_body'), get_href('respondent-password-update').uri_separator().'sid='.$hash_code, $info['first_name_'], $info['last_name_'], $info['sex_']);
                 }
                 else
@@ -579,7 +576,6 @@ function ap_process_password_form($location){
         {
             if ($resp->Reset_Password($_POST['sid'], $_POST['password']))
             {
-                die('2');
                 mail_respondent($info['email_'], page_cms('email_subject'), page_cms('email_body'), get_href(57), $info['first_name_'], $info['last_name_'], $info['sex_']);
 
                 $url = get_href($location);
@@ -907,7 +903,6 @@ function ap_process_registration_form(){
                             $subj = page_cms('email_subject');
 
                             $body = page_cms('email_body');
-die(3);
                             mail_respondent($_POST['email_'], $subj, $body, get_href('respondent_activate').uri_separator().'sid='.$hash_code, $_POST['first_name_'], $_POST['last_name_'], $_POST['sex_']);
                         }else{
                             $error['page_error'] = cons('Can\'t reset password');
@@ -1080,8 +1075,6 @@ function ap_process_new_registration_form(){
 
             $error['page_error_flag'] = 1;
 
-            var_dump($error);die('dasd');
-
         }else {
             $resp = ap_resp_init();
 
@@ -1177,7 +1170,6 @@ function ap_process_new_registration_form(){
                             $subj = page_cms('email_subject');
 
                             $body = page_cms('email_body');
-die(4);
                             mail_respondent($_POST['email'], $subj, $body, get_href('respondent_activate').uri_separator().'sid='.$hash_code, $_POST['first_name'], $_POST['last_name'], $_POST['sex']);
                         }else{
                             $error['page_error'] = cons('Can\'t reset password');
