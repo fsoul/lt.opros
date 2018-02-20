@@ -136,7 +136,7 @@
                     <div class="g-recaptcha" data-sitekey="6LcLxjMUAAAAAJLddbOpUD0JchnD4OERO0hM06Zo" data-callback="imNotARobot"></div>
                 </div>
                 <div class="user_agreement">
-                    <%include:agreement_rules_<%iif::language,UA,ua,ru%>%>
+                    <%include:agreement_rules_<%iif::language,LT,lt,ru%>%>
                 </div>
             </div>
             <div class="submit_btn">

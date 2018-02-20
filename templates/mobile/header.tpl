@@ -3,7 +3,7 @@
 <header>
     <div class="row">
         <div class="block90">
-            <div class="lang">
+            <!--<div class="lang">
                 <span class="lang-item">
                     <%iif::language,UA,UA,RU%>
                 </span>
@@ -11,7 +11,7 @@
                     <a class="lang-href" href="<%get_href::t,UA%>">UA</a>
                     <a class="lang-href" href="<%get_href::t,RU%>">RU</a>
                 </div>
-            </div>
+            </div>-->
             <h1 class="logo block25">
                 <a href="/" title="TNS"><img src="/img/tns-logo.jpg" alt="TNS"></a>
             </h1>
