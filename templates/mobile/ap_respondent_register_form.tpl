@@ -11,7 +11,7 @@
 </div>
 
 
-<a href="<%get_href:Authorization%>" class="button wht"><%e_cms_cons:Enter%></a>
+<a href="<%get_href:Authorization,LT%>" class="button wht"><%e_cms_cons:Enter%></a>
 <%text_edit_cms_cons:Or%>
 <div class="center"> <%e_cms_cons:Or%> </div>
 <a href="/<%iif::language,LT,LT,EN%>/registration.html" class="button wht"><%e_cms_cons:Register btn%></a>

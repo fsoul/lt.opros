@@ -17,7 +17,7 @@
 <form action="<%:EE_HTTP%>action.php" method="post" name="internal_login_form" id="internal_login_form">
 
 <input type="hidden" name="action" value="access_package.authorize" />
-<input type="hidden" name="backurl" value="/<%iif::language,UA,UA,RU%>/Potochni-proekty.html" />
+<input type="hidden" name="backurl" value="/<%iif::language,LT,LT,RU%>/Potochni-proekty.html" />
 <input type="hidden" name="login_cookie" id="login_cookie2" value="" />
 <input type="hidden" name="login_plid" id="login_plid2" value="" />
 
