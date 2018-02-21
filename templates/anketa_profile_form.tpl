@@ -10,6 +10,7 @@
             %>
         </div>
         <h3><%:question_title%></h3>
+        <h3><%:question_code%></h3>
         <form id="profile_poll_form" method="post">
             <input type="hidden" name="question_id" value="<%:question_code%>"/>
             <input type="hidden" name="skip_to" id="skip_to" value="0"/>

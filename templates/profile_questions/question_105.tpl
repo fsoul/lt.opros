@@ -11,42 +11,42 @@
     </tr>
     <tr>
         <td>Serialai, muilo operos</td>
-        <%print_profile_table_row:6,13447%>
+        <%print_profile_table_row:6,1,13447%>
     </tr>
     <tr>
         <td>Filmai</td>
-        <%print_profile_table_row:6%>
+        <%print_profile_table_row:6,2%>
     </tr>
     <tr>
         <td>Žinios, informacinės – analitinės laidos</td>
-        <%print_profile_table_row:6%>
+        <%print_profile_table_row:6,3%>
     </tr>
     <tr>
         <td>Muzikinės, pramoginės ir humoro laidos</td>
-        <%print_profile_table_row:6%>
+        <%print_profile_table_row:6,4%>
     </tr>
     <tr>
         <td>Dokumentika ir pažintinės laidos</td>
-        <%print_profile_table_row:6%>
+        <%print_profile_table_row:6,5%>
     </tr>
     <tr>
         <td>Animacija, programos vaikams</td>
-        <%print_profile_table_row:6%>
+        <%print_profile_table_row:6,6%>
     </tr>
     <tr>
         <td>Dokumentinės dramos, realybės dokumentika, realybės šou</td>
-        <%print_profile_table_row:6%>
+        <%print_profile_table_row:6,7%>
     </tr>
     <tr>
         <td>Pokalbių, publicistikos, debatų laidos</td>
-        <%print_profile_table_row:6%>
+        <%print_profile_table_row:6,8%>
     </tr>
     <tr>
         <td>Sporto rungtynės, apžvalgos</td>
-        <%print_profile_table_row:6%>
+        <%print_profile_table_row:6,9%>
     </tr>
     <tr>
         <td>Kitokios specializuotos laidos</td>
-        <%print_profile_table_row:6%>
+        <%print_profile_table_row:6,10%>
     </tr>
 </table>

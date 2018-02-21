@@ -1028,22 +1028,20 @@ function ap_profile_anketa_multiple($other_id = null, $ar=null)
     }
     return parse_array_to_html($ar, 'checkbox');
 }
-function print_profile_table_row($ncol, $start = 0)
+function print_profile_table_row($ncol, $row, $start = 0)
 {
-    global $next_profile_answer_id, $next_ruw_num;
+    global $next_profile_answer_id;
     $ret = '';
-    if($start == 0) {
+    if ($start == 0) {
         $ans_id = $next_profile_answer_id;
     } else {
         $ans_id = $start;
-        $next_ruw_num = 0;
     }
-    for($i=0;$i<$ncol;$i++) {
-        $ret .= '<td><input type="radio" name="question_ans['.$next_ruw_num.']" id="a_'.$next_ruw_num.'_'.$ans_id.'" value="'.$ans_id.'"/><label for="a_'.$next_ruw_num.'_'.$ans_id.'"></label></td>';
+    for ($i = 0; $i < $ncol; $i++) {
+        $ret .= '<td><input type="radio" name="question_ans[' . $row . ']" id="a_' . $row . '_' . $ans_id . '" value="' . $ans_id . '"/><label for="a_' . $row . '_' . $ans_id . '"></label></td>';
         $ans_id++;
     }
     $next_profile_answer_id = $ans_id;
-    $next_ruw_num++;
     return $ret;
 }
 

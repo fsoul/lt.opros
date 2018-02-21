@@ -10,23 +10,23 @@
     </tr>
     <tr>
         <td>Kava (maltų pupelių)</td>
-        <%print_profile_table_row:5,14476%>
+        <%print_profile_table_row:5,1,14476%>
     </tr>
     <tr>
         <td>Tirpi kava</td>
-        <%print_profile_table_row:5%>
+        <%print_profile_table_row:5,2%>
     </tr>
     <tr>
         <td>Tirpios kavos mišiniai</td>
-        <%print_profile_table_row:5%>
+        <%print_profile_table_row:5,3%>
     </tr>
     <tr>
         <td>Kava išsinešimui</td>
-        <%print_profile_table_row:5%>
+        <%print_profile_table_row:5,4%>
     </tr>
     <tr>
         <td>Arbata</td>
-        <%print_profile_table_row:5%>
+        <%print_profile_table_row:5,5%>
     </tr>
 
 </table>
