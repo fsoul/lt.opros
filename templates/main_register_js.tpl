@@ -55,6 +55,23 @@
             }
         });
 
+        var $city = $('#reg_residence_id');
+
+        $city.change(function(e){
+            $(e.target).css('color', '#333');
+            validator.showResult(e.target);
+            $(e.target).trigger('blur');
+        });
+
+        $city.blur(function (e) {
+            if(e.target.value == '...' ){
+                $(e.target).addClass('warning');
+                $(e.target).closest('.inp_wrap').append('<div class="warning_i" style="background: url(/css/images/redesign/warning.png)no-repeat center;"></div>');
+            }else{
+                $(e.target).removeClass('warning');
+            }
+        });
+
         function fixedEncodeURI (str) {
             return encodeURI(str).replace(/%5B/g, '[').replace(/%5D/g, ']');
         }
@@ -433,6 +450,19 @@
 
         $('#reg_submit_btn').click(function (e) {
             if($('#tns_id').val() == '') $('#tns_id').val(window["IDCore"].getId());
+
+            if($city.val() == '...'){
+                $($city).addClass('warning');
+                $($city).closest('.inp_wrap').append('<div class="warning_i" style="background: url(/css/images/redesign/warning.png)no-repeat center;"></div>');
+                e.preventDefault();
+            }
+
+            if($know_about.val() == '...'){
+                $($know_about).addClass('warning');
+                $($know_about).closest('.inp_wrap').append('<div class="warning_i" style="background: url(/css/images/redesign/warning.png)no-repeat center;"></div>');
+                e.preventDefault();
+            }
+
             if ($('#agr_rul_conf').prop('checked')) {
                 return;
             } else {

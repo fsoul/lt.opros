@@ -640,6 +640,10 @@ class AccessPanel_Respondent implements AccessPanel_Respondent_Interface{
         $res = $this->dbRequest ->dic_locality_list($search_string, $lang = false);
         return $res;
     }
+    public function get_city_list($dic_area_id, $lang = 'lt'){
+        $res = $this->dbRequest->dic_city_list($dic_area_id, $lang);
+        return $res;
+    }
 
 	/**
 	 * Gets minimal points for convertion value

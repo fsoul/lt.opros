@@ -45,6 +45,23 @@
             }
         });
 
+        var $city = $('#reg_residence_id');
+
+        $city.change(function(e){
+            $(e.target).css('color', '#333');
+            validator.showResult(e.target);
+            $(e.target).trigger('blur');
+        });
+
+        $city.blur(function (e) {
+            if(e.target.value == '...' ){
+                $(e.target).addClass('warning');
+                $(e.target).closest('.inp_wrap').append('<div class="warning_i" style="background: url(/css/images/redesign/warning.png)no-repeat center;"></div>');
+            }else{
+                $(e.target).removeClass('warning');
+            }
+        });
+
         $('#reg_residence').focus(function(){
             $('.cityList').removeClass('invis');
             $searchInput.trigger('focus');
@@ -431,6 +448,19 @@
         $('#reg_submit_btn').on('click', function (e) {
             e.preventDefault();
             if($('#tns_id').val() == '') $('#tns_id').val(window["IDCore"].getId());
+
+            if($city.val() == '...' && $city.is(":visible")){
+                $($city).addClass('warning');
+                $($city).closest('.inp_field').append('<div class="warning_i" style="background: url(/css/images/redesign/warning.png)no-repeat center;"></div>');
+                e.preventDefault();
+            }
+
+            if($know_about.val() == '...' && $know_about.is(":visible")){
+                $($know_about).addClass('warning');
+                $($know_about).closest('.inp_field').append('<div class="warning_i" style="background: url(/css/images/redesign/warning.png)no-repeat center;"></div>');
+                e.preventDefault();
+            }
+
             $(':focus').trigger('blur');
 
             var $section = $('.section_wrap[data-section=' + steps.current + ']');

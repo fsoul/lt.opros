@@ -108,6 +108,12 @@
                         <%e_cms_cons:reg_residence%>
                     </label>
                     <div class="inp_field">
+                        <select name="city" id="reg_residence_id" class="inp r_float">
+                            <option value="..."><%cms_cons:reg_resid_placeholder%></option>
+                            <%get_city_list:1,<%:language%>%>
+                        </select>
+                    </div>
+                    <!--<div class="inp_field">
                         <div class="search_wrap">
                             <input class="inp" type="text" placeholder="<%e_cms_cons:reg_resid_placeholder%>" id="reg_residence">
                             <input name="city" type="hidden" id="reg_residence_id">
@@ -117,7 +123,7 @@
                                 <div class="li_wrap"></div>
                             </ul>
                         </div>
-                    </div>
+                    </div>-->
                 </div>
                 <div class="inp_wrap">
                     <label for="reg_how">

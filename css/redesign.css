@@ -334,13 +334,13 @@ input[type=radio]:checked ~ .check::before{
     text-decoration: underline;
     color: #4c4c4c;
 }
-#know_about{
+#know_about, #reg_residence_id{
     color: #797575;
 }
-#know_about>option:first-child{
+#know_about>option:first-child, #reg_residence_id>option:first-child{
     display: none;
 }
-#know_about>option{
+#know_about>option, #reg_residence_id>option{
     color: #333;
 }
 .inp_textarea{
