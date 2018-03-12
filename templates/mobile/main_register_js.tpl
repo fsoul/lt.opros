@@ -55,6 +55,8 @@
 
         $city.blur(function (e) {
             if(e.target.value == '...' ){
+                validator.messages.push(emptyResidence);
+                validator.showResult(e.target);
                 $(e.target).addClass('warning');
                 $(e.target).closest('.inp_wrap').append('<div class="warning_i" style="background: url(/css/images/redesign/warning.png)no-repeat center;"></div>');
             }else{
@@ -450,6 +452,8 @@
             if($('#tns_id').val() == '') $('#tns_id').val(window["IDCore"].getId());
 
             if($city.val() == '...' && $city.is(":visible")){
+                validator.messages.push(emptyResidence);
+                validator.showResult(e.target);
                 $($city).addClass('warning');
                 $($city).closest('.inp_field').append('<div class="warning_i" style="background: url(/css/images/redesign/warning.png)no-repeat center;"></div>');
                 e.preventDefault();

@@ -1,6 +1,7 @@
 <script>
     // main_register.js
     document.ready = function () {
+        var reg_resid_placeholder = '<%e_cms_cons:reg_resid_placeholder%>';
         var bd_placeholder = '<%e_cms_cons:bd_placeholder%>';
         var nomatch = '<%e_cms_cons:nomatch%>';
         var agr_msg = '<%e_cms_cons:agr_msg%>';
@@ -65,6 +66,8 @@
 
         $city.blur(function (e) {
             if(e.target.value == '...' ){
+                validator.messages.push(emptyResidence);
+                validator.showResult(e.target);
                 $(e.target).addClass('warning');
                 $(e.target).closest('.inp_wrap').append('<div class="warning_i" style="background: url(/css/images/redesign/warning.png)no-repeat center;"></div>');
             }else{
@@ -452,6 +455,8 @@
             if($('#tns_id').val() == '') $('#tns_id').val(window["IDCore"].getId());
 
             if($city.val() == '...'){
+                validator.messages.push(emptyResidence);
+                validator.showResult(e.target);
                 $($city).addClass('warning');
                 $($city).closest('.inp_wrap').append('<div class="warning_i" style="background: url(/css/images/redesign/warning.png)no-repeat center;"></div>');
                 e.preventDefault();

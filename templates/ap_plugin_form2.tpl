@@ -65,12 +65,16 @@
     <%html_edit_page_cms:plugin_error%>
     <%html_edit_page_cms:plugin_sucess%>
     <div id="plugin_error" style="display:none;"><div class="error"><%nl2br_page_cms:plugin_error%></div>
+        <script type="text/javascript">function check_agree(){document.getElementById('download_plugin_block').style.display = document.getElementById('agree').checked?'block':'none'}</script>
+        <input type="checkbox" name="agree" id="agree" value="agree" onclick="check_agree()"/>
+        <%text_edit_page_cms:agree2%><%page_cms:agree2%>
+        <div id="download_plugin_block" style="display:none;">
+            <%include:<%iif:<%ap_is_plugin_authorized%>,1,ap_plugin_form3_top%>%>
+        </div>
         <div class="form_row">
             <%html_edit_page_cms:agree%><%nl2br_page_cms:agree%>
             <br/><br/>
-            <script type="text/javascript">function check_agree(){document.getElementById('download_plugin_block').style.display = document.getElementById('agree').checked?'block':'none'}</script>
-            <input type="checkbox" name="agree" id="agree" value="agree" onclick="check_agree()"/>
-            <%text_edit_page_cms:agree2%><%page_cms:agree2%><!--<br/><br/>
+            <!--<br/><br/>
             <%html_edit_page_cms:agree3%><strong><%page_cms:agree3%></strong>-->
         </div>
     </div>
@@ -81,9 +85,6 @@
                 <%e_cms_cons:additional_plugin_parameters%>
             </a>
         </div>
-    </div>
-    <div id="download_plugin_block" style="display:none;">
-        <%include:<%iif:<%ap_is_plugin_authorized%>,1,ap_plugin_form3_top%>%>
     </div>
     <%html_edit_page_cms:page_comment_black00%>
     <%html_edit_page_cms:page_comment_black10%>

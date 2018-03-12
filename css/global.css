@@ -41,7 +41,7 @@ MN - Removed @import and moved to a link tag in the header
 -------------------------------------------------------------- */
 body{
     color: #333;
-    font-family: Verdana;
+    font-family: 'Arial';
     font-size: 12px;
 }
 
@@ -104,7 +104,7 @@ a.link:hover{
 }
 
 p{
-    font-family: Verdana;
+    font-family: 'Arial';
     font-size: 12px;
 }
 
