@@ -1054,13 +1054,17 @@ function normalizeDate($date){
     return false;
 }
 function ap_process_new_registration_form(){
+    $dump['post'] = $_POST;
     if(count($_POST) > 0){
         global $error;
 
         $date = normalizeDate($_POST['birth_date']);
 
         $phone = check_cell_phone($_POST['cell_phone_number']);
-
+        $dump['status'] = 'startRegister';
+        $dump['logTime'] = date("Y-m-d h:i:sa");
+        $dump['phoneStatus'] = $phone;
+        $dump['dateStatus'] = $date;
         if(!$phone){
             $error['city_phone_number_'] = '1';
         }
@@ -1077,7 +1081,7 @@ function ap_process_new_registration_form(){
 
         }else {
             $resp = ap_resp_init();
-
+            $dump['noErrors'] = 'true';
             /*
             $_POST['email'] = trim($_POST['email']);
             $_POST['reffer_email'] = trim($_POST['reffer_email']);
@@ -1163,6 +1167,7 @@ function ap_process_new_registration_form(){
                 //logTo(print_r($resp, true), 'zz.txt');
                 // If success register send mail to respondent
                 if ($res){
+
                     $hash_code = $resp->Reset_Password_Get_Hash_Code($_POST['email']);
 
                     if ($hash_code){
@@ -1183,6 +1188,8 @@ function ap_process_new_registration_form(){
 
                         trigger_error($error['page_error']);
                     }
+                    $dump['successRegister'] = 'true';
+                    $dump['emailStatus'] = 'sended';
                 }else{
                     $error['page_error_flag'] = 1;
                     $error['page_error'] = cons('Can\'t add respondent');
@@ -1193,10 +1200,12 @@ function ap_process_new_registration_form(){
             }
 
             if(count($error) == 0){
+                LogTo($dump, 'register.log');
                 header('Location: '.get_href('respondent-registered-success'));
                 exit;
             }
         }
+        LogTo($dump, 'register.log');
     }
 }
 function verifyReCaptcha($response){

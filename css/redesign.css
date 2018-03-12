@@ -530,3 +530,6 @@ input[type=radio]:checked ~ .check::before{
     color: #EC008C;
     font-size: 18px;
 }
+#js-additional-data-btn{
+    display: none;
+}

@@ -21,12 +21,12 @@ RewriteEngine On
 
 
 RewriteCond %{HTTP_HOST} . 
-RewriteCond %{HTTP_HOST} !^lt\.opros\.tns-ua\.com$ 
-RewriteRule (.*) http://lt.opros.tns-ua.com/$1 [R=301,L] 
+RewriteCond %{HTTP_HOST} !^www\.panel\.kantartns\.lt$
+RewriteRule (.*) http://www.panel.kantartns.lt/$1 [R=301,L]
 
 RewriteRule ^UA/project-complete-url$ /UA/project-complete-url.html [R=301,L] 
 RewriteRule ^RU/project-complete-url$ /RU/project-complete-url.html [R=301,L] 
-RewriteRule ^Plugin.html$ http://lt.opros.tns-ua.com/UA/Plugin.html [R=301,L] 
+RewriteRule ^Plugin.html$ http://www.panel.kantartns.lt/LT/Plugin.html [R=301,L]
 
 RewriteRule ^sitemap.xml$ /_core/ee/index.php?t=sitemap [L]
 

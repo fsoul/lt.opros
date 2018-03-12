@@ -133,7 +133,7 @@
                     </div>
                 </div>
                 <div class="g_captcha inp_wrap">
-                    <div class="g-recaptcha" data-sitekey="6LcLxjMUAAAAAJLddbOpUD0JchnD4OERO0hM06Zo" data-callback="imNotARobot"></div>
+                    <div class="g-recaptcha" data-sitekey="6LdxTikUAAAAAFm4XSMA6R-gJuzYqCP4U5nY2gGI" data-callback="imNotARobot"></div>
                 </div>
                 <div class="user_agreement">
                     <%include:agreement_rules_<%iif::language,LT,lt,ru%>%>

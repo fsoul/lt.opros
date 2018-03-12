@@ -26,7 +26,7 @@ All buttons styles should extend this class
 div.container a.button{
     cursor: pointer;
     display: inline-block;
-    font-family: 'FrutigerLTPro-Light';
+    font-family: 'Arial';
     text-decoration: none;
 }
 

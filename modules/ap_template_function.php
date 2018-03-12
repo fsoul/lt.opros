@@ -1032,6 +1032,7 @@ function print_profile_table_row($ncol, $row, $start = 0)
 {
     global $next_profile_answer_id;
     $ret = '';
+    $row = $row - 1;
     if ($start == 0) {
         $ans_id = $next_profile_answer_id;
     } else {

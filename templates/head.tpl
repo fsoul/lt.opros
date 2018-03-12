@@ -375,6 +375,7 @@
     <%include:ap_registration_form_js%>
     <script src='//www.google.com/recaptcha/api.js?hl=<%iif::language,LT,lt,en%>'></script>
     <script src='/js/jquery.ba-throttle-debounce.min.js'></script>
+    <script src="//unpkg.com/xregexp/xregexp-all.js"></script>
 </head>
 
 <body id="iRoot" class="page">

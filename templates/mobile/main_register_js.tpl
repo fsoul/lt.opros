@@ -141,7 +141,7 @@
         }
 
         function phonePreValidate(value){
-            return (value.length > 8);
+            return (value.length >= 8 && value.length <= 12);
         }
 
         var validator = {
@@ -247,7 +247,7 @@
             reg_pass_confirm: "isEqualToPass",
             reg_name: "isAlpha",
             reg_birthdate: "isValidDate",
-            //reg_phone: "isAllowedPhone",
+            reg_phone: "isAllowedPhone",
             reg_residence: "isNonEmpty",
             reg_how: "isNonEmpty"
         };
@@ -305,7 +305,6 @@
 
         validator.types.isEqualToPass = {
             validate: function (value) {
-                console.log(value === $('#reg_pass').val());
                 value = value ? value : false;
                 return (value === $('#reg_pass').val());
             },
@@ -314,7 +313,8 @@
 
         validator.types.isAlpha = {
             validate: function (value) {
-                return /^[A-z\u0410-\u044f\u0406\u0456\u042d\u044d\u0490\u0491\u0407\u0457\s]+$/.test(value);
+                var unicodeWord = XRegExp("^\\pL+$");
+                return unicodeWord.test(value);
             },
             instructions: errors.reg_name_msg
         };
