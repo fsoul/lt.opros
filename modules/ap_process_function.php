@@ -1061,7 +1061,7 @@ function get_city_list($dic_area_id, $language){
     foreach ($cityDictionary as $item){
         array_push($options, "<option value='" . $item['dic_city_id'] . "'>" . $item['city_name'] . "</option>");
     }
-
+    
     return implode('', $options);
 }
 function ap_process_new_registration_form(){
