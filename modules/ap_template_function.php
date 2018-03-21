@@ -916,7 +916,7 @@ function ap_download_plugin_title()
     global $language;
     $br = ap_get_browser_for_plugin();
     if(($br == 'Chrome' || $br == 'Opera15' || $br == 'Opera') && ($br != 'Android')) {
-        $ret = $language=='RU' ? 'Установить плагин' : 'Įdiekti Papildinį';
+        $ret = $language=='RU' ? 'Установить плагин' : 'Įdiegti Papildinį';
     } elseif ($br == 'Android') {
         $ret = $language=='RU' ? 'Установить браузер' : 'Įdiekti Naršyklę';
     } else {
