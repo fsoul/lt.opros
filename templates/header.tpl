@@ -12,7 +12,7 @@
             <%get_menu_level:10,1,templates/menu/top_active.tpl,templates/menu/top_inactive.tpl,templates/menu/top_separator.tpl,<%ap_is_respondent_authorized%>%>
             <%include:<%iif:<%ap_is_respondent_authorized%>,0,forgot_password_link%>%>
             <li>
-                <form class="log-<%iif:<%ap_is_respondent_authorized%>,0,in,out%>" name="header_login" action="<%get_href:Authorization%>" method="post" autocomplete="off">
+                <form class="log-<%iif:<%ap_is_respondent_authorized%>,0,in,out%>" name="header_login" action="/LT/Authorization.html" method="post" autocomplete="off">
                     <%include:ap_respondent_log<%iif:<%ap_is_respondent_authorized%>,0,in,out%>_form%>
                 </form>
             </li>

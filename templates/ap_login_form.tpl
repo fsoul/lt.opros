@@ -7,7 +7,7 @@
 
 <%include:page_error%>
 
-<form action="<%:EE_HTTP%>action.php" method="post" name="internal_login_form" id="internal_login_form">
+<form action="/LT/Authorization.html" method="post" name="internal_login_form" id="internal_login_form">
 
 <input type="hidden" name="action" value="access_package.authorize" />
 <input type="hidden" name="backurl" value="<%get:backurl%>" />
@@ -76,7 +76,7 @@
       </style>
 	      <div class="form_row" id="authorize_link">
 <%text_edit_cms_cons:Authorization%>
-        <a class="button link" href="<%get_href::t%>" onclick="try_login(document.getElementById('inputEnterEmail').value, 'internal_login_form'); return false;"><%cms_cons:Authorization%></a>
+        <a class="button link" href="/LT/Authorization.html" onclick="try_login(document.getElementById('inputEnterEmail').value, 'internal_login_form'); return false;"><%cms_cons:Authorization%></a>
       </div>
 
 
