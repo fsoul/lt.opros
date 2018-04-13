@@ -103,7 +103,7 @@
             <%iif:<%Ap_is_respondent_authorized%>,1,<span id="btnLogout"><%text_edit_cms_cons:Exit%><a class="exit" href="javascript:document.forms['header_login'].submit();"><%cms_cons:Exit%></a></span>,<a class="enter" href="/<%:language%>/Authorization.html"><%cms_cons:Enter%></a>%>
         </div>
     </div>
-    <form class="log-out" name="header_login" action="/RU/Authorization.html" method="post" autocomplete="off">
+    <form class="log-out" name="header_login" action="/LT/Authorization.html" method="post" autocomplete="off">
         <input type="hidden" name="page_from" value="<%get_href:<%:t%>%>" />
         <input type="hidden" name="action" value="respondent_logout" />
     </form>

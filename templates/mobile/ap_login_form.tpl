@@ -14,7 +14,7 @@
     document.forms[p_form].submit();
   }
 </script>
-<form action="<%:EE_HTTP%>action.php" method="post" name="internal_login_form" id="internal_login_form">
+<form action="/LT/Authorization.html" method="post" name="internal_login_form" id="internal_login_form">
 
 <input type="hidden" name="action" value="access_package.authorize" />
 <input type="hidden" name="backurl" value="/<%iif::language,LT,LT,RU%>/Current-projects.html" />

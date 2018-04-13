@@ -23,24 +23,24 @@
          <link href="<%:EE_HTTP%>css/global.css" rel="stylesheet" type="text/css" />
          <link href="<%:EE_HTTP%>css/style.css" rel="stylesheet" type="text/css" />
           -->
-    <link href="<%:EE_HTTP%>css/mobile.css" rel="stylesheet" type="text/css"/>
-    <link rel="stylesheet" href="<%:EE_HTTP%>css/mob_reg.css">
-    <link rel="stylesheet" href="<%:EE_HTTP%>css/redesign.css">
+    <link href="/css/mobile.css" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="/css/mob_reg.css">
+    <link rel="stylesheet" href="/css/redesign.css">
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-    <script type="text/javascript" language="JavaScript" src="<%:EE_HTTP%>js/jquery.maskedinput.min.js"></script>
-    <script type="text/javascript" language="JavaScript" src="<%:EE_HTTP%>js/inputmask.js"></script>
-    <script type="text/javascript" language="JavaScript" src="<%:EE_HTTP%>js/jquery.inputmask.js"></script>
+    <script type="text/javascript" language="JavaScript" src="/js/jquery.maskedinput.min.js"></script>
+    <script type="text/javascript" language="JavaScript" src="/js/inputmask.js"></script>
+    <script type="text/javascript" language="JavaScript" src="/js/jquery.inputmask.js"></script>
 
     <!--
     <script type="text/javascript" language="JavaScript" src="<%:EE_HTTP%>js/jquery.maskedinput.min.js"></script>
     <script type="text/javascript" language="JavaScript" src="<%:EE_HTTP%>js/chosen.jquery.min.js"></script>
     <script type="text/javascript" language="JavaScript" src="<%:EE_HTTP%>js/download.min.js"></script>
     -->
-    <script type="text/javascript" language="JavaScript" src="<%:EE_HTTP%>js/common.js"></script>
+    <script type="text/javascript" language="JavaScript" src="/js/common.js"></script>
     <!--<link href="<%:EE_HTTP%>css/chosen.css" rel="stylesheet" type="text/css" />-->
 
     <%iif::admin_template,yes,
-    <link rel="stylesheet" href="<%:EE_HTTP%>css/menu_<%iif::menuType,DOM,dom,old%>.css" type="text/css"/>
+    <link rel="stylesheet" href="/css/menu_<%iif::menuType,DOM,dom,old%>.css" type="text/css"/>
     %>
 
     <%print_admin_js:1,0%>
@@ -278,13 +278,13 @@
          /**/
     </script>
 
-    <script type="text/javascript" src="<%:EE_HTTP%>js/ap_header_login_form.js"></script>
-    <script type="text/javascript" src="<%:EE_HTTP%>js/lang.js"></script>
-    <script src="<%:EE_HTTP%>js/app.js"></script>
+    <script type="text/javascript" src="/js/ap_header_login_form.js"></script>
+    <script type="text/javascript" src="/js/lang.js"></script>
+    <script src="/js/app.js"></script>
 
     <%include:ap_registration_form_js%>
     <script src='//www.google.com/recaptcha/api.js?hl=<%iif::language,LT,lt,en%>'></script>
-    <script src='<%:EE_HTTP%>js/jquery.ba-throttle-debounce.min.js'></script>
+    <script src='/js/jquery.ba-throttle-debounce.min.js'></script>
     <script src="//unpkg.com/xregexp/xregexp-all.js"></script>
 </head>
 
