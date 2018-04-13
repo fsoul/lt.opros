@@ -20,9 +20,12 @@ DirectoryIndex index.html /_core/ee/index.php
 RewriteEngine On
 
 
-RewriteCond %{HTTP_HOST} . 
-RewriteCond %{HTTP_HOST} !^www\.panel\.kantartns\.lt$
-RewriteRule (.*) http://www.panel.kantartns.lt/$1 [R=301,L]
+#RewriteCond %{HTTP_HOST} .
+#RewriteCond %{HTTP_HOST} !^www\.panel\.kantartns\.lt$
+#RewriteRule (.*) http://www.panel.kantartns.lt/$1 [R=301,L]
+RewriteCond %{HTTPS} off [OR]
+RewriteCond %{HTTP_HOST} !^www\. [NC]
+RewriteRule (.*) https://www.panel.kantartns.lt%{REQUEST_URI} [R=301,L]
 
 RewriteRule ^UA/project-complete-url$ /UA/project-complete-url.html [R=301,L] 
 RewriteRule ^RU/project-complete-url$ /RU/project-complete-url.html [R=301,L] 
