@@ -37,7 +37,7 @@
             }
             // TODO: send requset to backend;
             console.log(is_counter_block, is_adv_block);
-            ajax_get_json('<%:EE_HTTP%>action.php?action=check_adblock&' +
+            ajax_get_json('/action.php?action=check_adblock&' +
                     'is_counter_block=' + is_counter_block + '&' +
                     'is_adv_block=' + is_adv_block + '&' +
                     'plid=' + plid + '&' +

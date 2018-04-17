@@ -8,7 +8,7 @@ window.onload = function(){
                 showMmiForm(id); 
             }
             if ("" != "<%ap_get_respondent_id%>") {
-                window["IDCore"].send("pagestat.mmi.bemobile.ua/pagestat/PageStatEntry", {
+                window["IDCore"].send("lisslpagestat.mmi.bemobile.ua/pagestat/PageStatEntry", {
                     "param1": "<%ap_get_respondent_id%>",
                     "param2" : -1,
                     "param3": 2

@@ -458,9 +458,9 @@ switch ($action) {
 		$resp_id = ap_get_respondent_id();
 		$cookie = isset( $_GET['cookie'] ) ? $_GET['cookie'] : '';
 		$plid_id =  isset( $_GET['plid'] ) ? $_GET['plid'] : '';
-		var_dump($resp_id);
-		var_dump($cookie);
-		var_dump($plid_id);
+//		var_dump($resp_id);
+//		var_dump($cookie);
+//		var_dump($plid_id);
 		$resp = ap_resp_init();
 		$resp_id = ap_get_respondent_id();
 		if(!$resp_id) exit;
