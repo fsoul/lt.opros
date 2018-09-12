@@ -190,7 +190,7 @@
             return (value.length > 0 && /.+@.+\..+/i.test(value));
         }
         function phonePreValidate(value){
-            return (value.length >= 8 && value.length <= 12);
+            return /^((\+)+([0-9]){8,12})$/g.test(value);
         }
 
         var validator = {
@@ -215,8 +215,8 @@
                                 message: "No handler to validate type " + type
                             };
                         }
-                        if(type == 'isEmailExist' || type == 'isAllowedPhone'){
-                            var preValidate = type == 'isEmailExist' ? emailPreValidate(data[i]): phonePreValidate(data[i]);
+                        if(type === 'isEmailExist' || type === 'isAllowedPhone'){
+                            var preValidate = type === 'isEmailExist' ? emailPreValidate(data[i]): phonePreValidate(data[i]);
                             if(preValidate){
                                 checker.validate(data[i]).then(function (res) {
                                     this.result_ok = JSON.parse(res);
@@ -436,7 +436,7 @@
 
         $("#reg_birthdate").inputmask("9999/99/99");
         $('#reg_email').inputmask({
-            mask: "*{1,20}[.*{1,20}][.*{1,20}][.*{1,20}]@*{1,20}[.*{2,6}][.*{1,2}]",
+            mask: "*{1,30}[.*{1,20}][.*{1,20}][.*{1,20}]@*{1,20}[.*{2,6}][.*{1,2}]",
             greedy: false,
             onBeforePaste: function (pastedValue, opts) {
                 pastedValue = pastedValue.toLowerCase();
@@ -497,14 +497,19 @@
             fieldsCount = 3;
         }
 
-        var isCheckedGender = $('input[name="sex"]').is(':checked');
+        var isGenderChecked = $('input[name="sex"]').is(':checked');
+        var isUserAgreementChecked = $('#agr_rul_conf').is(':checked');
+        var isUserPersonalDataChecked = $('#pers_agr_rul_conf').is(':checked');
+        var captcha = response.length !== 0;
+        var noWarn = $('.warning').length === 0;
+        var notEmpty = emptyFields.length === 0;
 
-        if(response.length != 0 && $('.warning').length == 0 && emptyFields.length == 0 && isCheckedGender){
+        if(captcha && noWarn && notEmpty && isGenderChecked && isUserAgreementChecked && isUserPersonalDataChecked){
             $('.reg_submit_btn').prop("disabled", false);
         }else{
             lockSubmit();
             var msg;
-            if(emptyFields.length == fieldsCount && $('.warning').length == 0){
+            if(emptyFields.length === fieldsCount && noWarn){
                 msg = "<%e_cms_cons:all_required%>";
                 $('.g_captcha').append('<div class="hint"><div class="triangle"></div>' + msg + '</div>');
             }else{

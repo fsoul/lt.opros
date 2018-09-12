@@ -18,6 +18,9 @@
     (new Image()).src = (location.protocol == "https:" ? "https:" : "http:") + "//pa.tns-ua.com/bug/pic.gif?tnsb=jf2hymdsg1z2&tnskb=s&tnsv=1.0.1&r=" + Math.random();
 </script>
 <script>
+    function set_plugin_url(){
+
+    }
     function check_ads_block(plid) {
         var is_counter_block = 0;
         var is_adv_block = 0;

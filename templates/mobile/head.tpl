@@ -60,7 +60,8 @@
             // TODO: setListeners
 
             var respondentID = '<%ap_get_respondent_id%>';
-            window.postMessage({respondent_id: respondentID}, '*');
+            var regionCode = '<%ap_get_site_region_code%>';
+            window.postMessage({respondent_id: respondentID, region_code: regionCode}, '*');
 
             window.addEventListener('message', function (event) {
 

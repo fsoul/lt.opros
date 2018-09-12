@@ -19,7 +19,10 @@ window.onload = function(){
             //} else if (document.getElementById('tns_id')) {
                 document.getElementById('tns_id').value = id;
             }
-            document.getElementById('login_cookie').value = id;
+            var login_cookie = document.getElementById('login_cookie');
+            if(login_cookie) {
+                login_cookie.value = id;
+            }
             console.log('login_cookie set_ '+id);
         } catch(e) {
             console.log(e);

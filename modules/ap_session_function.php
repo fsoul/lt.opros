@@ -21,6 +21,11 @@ function ap_get_respondent_email()
 	return ap_get_respondent_param('email_');
 }
 
+function ap_get_site_region_code()
+{
+    return SITE_REGION_CODE;
+}
+
 function ap_get_respondent_fio()
 {
 	return ap_get_respondent_first_name().' '.ap_get_respondent_last_name();

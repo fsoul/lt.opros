@@ -185,7 +185,7 @@ function ap_process_points_convertion_form()
                     $msg = parse_array_to_html($ar_mail_res, 'points_convertion_mail');
 //echo $msg;
 //exit;
-//					$res = mail_respondent(CONVERTION_SUBMIT_EMAIL, CONVERTION_SUBMIT_SUBJECT, $msg, null, null, null, null, true);
+//					$res = mail_respondent_smtp(CONVERTION_SUBMIT_EMAIL, CONVERTION_SUBMIT_SUBJECT, $msg, null, null, null, null, true);
 //var_dump($res);
                 }
             }
@@ -253,8 +253,8 @@ function ap_process_reffer_form()
         }
         else
         {
-//function mail_respondent($to_email, $subject, $message, $hash_code, $page_code, $first_name, $last_name, $sex_=1)
-            $res = mail_respondent($_POST['invitation_to_email'], cms('reffer_email_subject'), cms('reffer_email_body'), get_reffer_link(), ap_get_respondent_first_name(), ap_get_respondent_last_name());
+//function mail_respondent_smtp($to_email, $subject, $message, $hash_code, $page_code, $first_name, $last_name, $sex_=1)
+            $res = mail_respondent_smtp($_POST['invitation_to_email'], cms('reffer_email_subject'), cms('reffer_email_body'), get_reffer_link(), ap_get_respondent_first_name(), ap_get_respondent_last_name());
 
             if (!$res)
             {
@@ -294,7 +294,7 @@ function ap_process_respondent_activate()
                 if ($res)
                 {
                     $info = $resp->Get_Info($info['ap_respondent_id_']);
-                    mail_respondent($info['email_'], page_cms('email_subject'), page_cms('email_body'), get_href(57), $info['first_name_'], $info['last_name_'], $info['sex_']);
+                    mail_respondent_smtp($info['email_'], page_cms('email_subject'), page_cms('email_body'), get_href(57), $info['first_name_'], $info['last_name_'], $info['sex_']);
 
                     $url = get_href(68);
 
@@ -478,7 +478,7 @@ function ap_process_password_reminder_form()
                 if ($hash_code)
                 {
                     $info = $resp->Get_Info_By_Email($_POST['email_']);
-                    mail_respondent($_POST['email_'], page_cms('email_subject'), page_cms('email_body'), get_href('respondent-password-update').uri_separator().'sid='.$hash_code, $info['first_name_'], $info['last_name_'], $info['sex_']);
+                    mail_respondent_smtp($_POST['email_'], page_cms('email_subject'), page_cms('email_body'), get_href('respondent-password-update').uri_separator().'sid='.$hash_code, $info['first_name_'], $info['last_name_'], $info['sex_']);
                 }
                 else
                 {
@@ -576,7 +576,7 @@ function ap_process_password_form($location){
         {
             if ($resp->Reset_Password($_POST['sid'], $_POST['password']))
             {
-                mail_respondent($info['email_'], page_cms('email_subject'), page_cms('email_body'), get_href(57), $info['first_name_'], $info['last_name_'], $info['sex_']);
+                mail_respondent_smtp($info['email_'], page_cms('email_subject'), page_cms('email_body'), get_href(57), $info['first_name_'], $info['last_name_'], $info['sex_']);
 
                 $url = get_href($location);
 
@@ -903,7 +903,7 @@ function ap_process_registration_form(){
                             $subj = page_cms('email_subject');
 
                             $body = page_cms('email_body');
-                            mail_respondent($_POST['email_'], $subj, $body, get_href('respondent_activate').uri_separator().'sid='.$hash_code, $_POST['first_name_'], $_POST['last_name_'], $_POST['sex_']);
+                            mail_respondent_smtp($_POST['email_'], $subj, $body, get_href('respondent_activate').uri_separator().'sid='.$hash_code, $_POST['first_name_'], $_POST['last_name_'], $_POST['sex_']);
                         }else{
                             $error['page_error'] = cons('Can\'t reset password');
                             $error['oci_debug'] = $resp->_oci->get_debug();
@@ -1061,7 +1061,7 @@ function get_city_list($dic_area_id, $language){
     foreach ($cityDictionary as $item){
         array_push($options, "<option value='" . $item['dic_city_id'] . "'>" . $item['city_name'] . "</option>");
     }
-    
+
     return implode('', $options);
 }
 function ap_process_new_registration_form(){
@@ -1186,7 +1186,7 @@ function ap_process_new_registration_form(){
                             $subj = page_cms('email_subject');
 
                             $body = page_cms('email_body');
-                            mail_respondent($_POST['email'], $subj, $body, get_href('respondent_activate').uri_separator().'sid='.$hash_code, $_POST['first_name'], $_POST['last_name'], $_POST['sex']);
+                            mail_respondent_smtp($_POST['email'], $subj, $body, get_href('respondent_activate').uri_separator().'sid='.$hash_code, $_POST['first_name'], $_POST['last_name'], $_POST['sex']);
                         }else{
                             $error['page_error'] = cons('Can\'t reset password');
                             $error['oci_debug'] = $resp->_oci->get_debug();

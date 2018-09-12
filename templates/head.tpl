@@ -54,6 +54,14 @@
 
     <%print_admin_js:1,0%>
 
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+                j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+                '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+                })(window,document,'script','dataLayer','GTM-54586QP');</script>
+    <!-- End Google Tag Manager -->
+
     <script type="text/javascript" language="JavaScript">
         $(document).ready(function () {
             var path = window.location.pathname;
@@ -106,7 +114,8 @@
             // TODO: setListeners
 
             var respondentID = '<%ap_get_respondent_id%>';
-            window.postMessage({respondent_id: respondentID}, '*');
+            var regionCode = '<%ap_get_site_region_code%>';
+            window.postMessage({respondent_id: respondentID, region_code: regionCode}, '*');
 
             window.addEventListener('message', function (event) {
 
@@ -124,7 +133,7 @@
 
                     }
                     if (event.data.command == "get_respondent_id") {
-                        event.target.postMessage({respondent_id: respondentID}, '*');
+                        event.target.postMessage({respondent_id: respondentID, region_code: regionCode}, '*');
                     }
                 }
             });
@@ -312,40 +321,8 @@
                         submit_popup1(cookie);
                         return false;
                     };
-                } else if (resp.resp == "4") {
-                    var ov = document.createElement('div');
-                    var pup = document.createElement('div');
-                    ov.className = 'overlay';
-                    pup.className = 'popup';
-                    ov.id = 'popup_overlay';
-                    pup.id = 'popup_body';
-
-                    var d_header = '<div class="pp_header"><div class="pp_container"><%cms_cons:My popup header%></div></div>';
-
-                    var d_form = '<div class="pp_body"><div class="pp_container">'
-                        + '<p style="background:none"><br/><%longtext_edit_cms:POPUP_CHANGE_EMAIL%><%cms_for_js:POPUP_CHANGE_EMAIL%><br/></p>'
-                        + '</div></div><div class="pp_footer"><div class="pp_container">'
-                        + '<div style="float:left; margin:5px 20px; font-size:9px"><a id="popup_cancel" style="margin-right:10px" href="javascript:void(0)">x</a><%cms_cons:My popup close%></div>'
-                        + '<input type="button" value="<%cms_cons:My popup btn text%>" id="popup_go">'
-                        + '</div></div>';
-
-                    pup.innerHTML = d_header + d_form;
-
-                    document.body.style.overflowY = 'hidden';
-                    document.body.appendChild(ov);
-                    document.body.appendChild(pup);
-
-                    var form = document.forms['popup_form'];
-                    var subm = document.getElementById('popup_submit');
-
-                    document.getElementById('popup_go').onclick = function () {
-                        location.href = "/<%iif::language,UA,UA,RU%>/email-change.html";
-                    };
-                    document.getElementById('popup_cancel').onclick = function () {
-                        hide_popup();
-                    };
                 }
-                console.log("resp -> " + resp.resp);
+                //console.log("resp -> " + resp.resp);
             });
         }
 
@@ -379,6 +356,11 @@
 </head>
 
 <body id="iRoot" class="page">
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-54586QP"
+                  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 
 <%include:<%iif:1,1,cmeter%>%>
 

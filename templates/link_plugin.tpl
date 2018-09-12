@@ -6,8 +6,9 @@
             var tnsid = null;
             window["IDCore"].addOnReadyListener(function(id) {
                 tnsid = id;
+                var url = location.protocol + '//' + location.hostname + '/action.php';
                 $.get(
-                    "<%:EE_HTTP%>action.php",
+                    url,
                     {action:"link_plugin_id",id_resp:"<%ap_get_respondent_id%>",id_pl:plid,tns_id:tnsid},
                     function(){}
                 );

@@ -27,6 +27,9 @@
 <!-- End Facebook Pixel Code -->
 
 <div class="reg_form_wrapper">
+    <div>
+        <%e_page_cms:head_prolog%>
+    </div>
     <p class="head_title"><%e_cms_cons:head_title%></p>
     <p class="head_title_hint"><%e_cms_cons:head_title_hint%></p>
     <form method="POST" autocomplete="off">
@@ -100,7 +103,7 @@
                 </div>
             </div>
 
-            <div class="section_wrap">
+            <div class="section_wrap_last">
                 <p class="sub_title">3. <%e_cms_cons:profile_contacts%></p>
                 <div class="inp_wrap">
                     <label for="reg_phone">
@@ -141,11 +144,20 @@
                 </div>
             </div>
 
-            <div class="g_captcha inp_wrap clearfix">
-                <div class="g-recaptcha r_float" data-sitekey="6LdxTikUAAAAAFm4XSMA6R-gJuzYqCP4U5nY2gGI" data-callback="imNotARobot" data-expired-callback="captchaExpired"></div>
-            </div>
             <div class="user_agreement">
                 <%include:agreement_rules_<%iif::language,LT,lt,ru%>%>
+            </div>
+
+            <div style="clear: both;"></div>
+
+            <div class="user_personal_data_agreement" style="width: 306px; float: right;">
+                <%include:agreement__personal_rules_lt%>
+            </div>
+
+            <div style="clear: both;"></div>
+
+            <div class="g_captcha inp_wrap clearfix">
+                <div class="g-recaptcha r_float" data-sitekey="6LdxTikUAAAAAFm4XSMA6R-gJuzYqCP4U5nY2gGI" data-callback="imNotARobot" data-expired-callback="captchaExpired"></div>
             </div>
             <div class="submit_btn">
                 <button class="reg_submit_btn r_float" id="reg_submit_btn" disabled><%e_cms_cons:reg_submit%></button>

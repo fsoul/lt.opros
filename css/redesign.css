@@ -94,7 +94,7 @@
 .section_wrap{
     margin-bottom: 40px;
 }
-.section_wrap:last-child {
+.section_wrap:last-child, .section_wrap_last {
     margin-bottom: 8px;
 }
 .r_inp_group{
@@ -157,8 +157,8 @@ input[type=radio]{
 .user_agreement p{
     margin: 0;
     font-size: 14px;
-    line-height: 16px;
-    color: #B7B7B7;
+    color: #797575;
+    text-align: left;
 }
 .user_agreement p a {
     color: #2D9CDB;
@@ -532,4 +532,12 @@ input[type=radio]:checked ~ .check::before{
 }
 #js-additional-data-btn{
     display: none;
+}
+.user_personal_data_agreement p,
+.user_personal_data_agreement ul li{
+    font-size: 14px;
+    color: #797575;
+}
+#pers_agr_rul_conf{
+    margin-right: 5px;
 }

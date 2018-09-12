@@ -292,8 +292,6 @@ class AccessPanel_DBHttpRequest {
         else return false;
     }
     function set_adv_block_status($is_counter_block, $is_adv_block, $resp_id, $cookie, $plid_id){
-        var_dump($is_counter_block);
-        var_dump($is_adv_block);
         $data = array(
             'is_counter_block' => $is_counter_block,
             'is_adv_block' => $is_adv_block,
@@ -303,9 +301,7 @@ class AccessPanel_DBHttpRequest {
             'ip' => $_SERVER['REMOTE_ADDR'],
             'useragent' => $_SERVER['HTTP_USER_AGENT']
         );
-        var_dump($data);
         $res =  $this->request('set_adv_block_status', $data);
-        var_dump($res);
         if($res['response_code'] == 000)
             return true;
         else return false;
