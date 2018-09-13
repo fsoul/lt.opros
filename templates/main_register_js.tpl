@@ -36,6 +36,9 @@
         $('input[type="checkbox"]').change(function(){
             if(this.checked){
                 $('.g_captcha.inp_wrap .warning').remove();
+            }else {
+                lockSubmit();
+                resetCaptcha();
             }
         });
 
@@ -498,7 +501,7 @@
 
         var fieldsCount = 7;
         var lang = '<%getValueOf:language%>'.toLowerCase();
-        if ((window.location.pathname).toLowerCase() == "/" + lang + "/user-profile.html"){
+        if ((window.location.pathname).toLowerCase() === "/" + lang + "/user-profile.html"){
             fieldsCount = 3;
         }
 
@@ -521,12 +524,19 @@
                 msg = "<%e_cms_cons:checkAllData%>";
                 $('.g_captcha').append('<div class="error_flag warning"><div class="triangle"></div>' + msg + '</div>');
             }
-            grecaptcha.reset();
+            resetCaptcha();
         }
     };
 
     var lockSubmit = function(){
         $('.reg_submit_btn').prop("disabled", true);
+    };
+    var resetCaptcha = function(){
+        try {
+            grecaptcha.reset();
+        }catch (e) {
+            console.log('Google captcha not included');
+        }
     };
 
     var unlockSubmit = function () {

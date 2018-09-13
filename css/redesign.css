@@ -177,8 +177,20 @@ input[type=radio]{
     z-index: 6;
 }
 input[type=radio]{
-    position: absolute;
-    visibility: hidden;
+    /* IE 8 */
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+
+    /* IE 5-7 */
+    filter: alpha(opacity=0);
+
+    /* Netscape */
+    -moz-opacity: 0;
+
+    /* Safari 1.x */
+    -khtml-opacity: 0;
+
+    /* Good browsers */
+    opacity: 0;
 }
 .check{
     display: block;
@@ -205,6 +217,10 @@ input[type=radio]{
     margin: auto;
     transition: background 0.25s linear;
     -webkit-transition: background 0.25s linear;
+}
+.cstm_radio input[type=radio]:focus ~ .check {
+    border: 1px solid #333;
+    box-shadow: 0 0 1px 1px rgba(77, 144, 254, 0.7);
 }
 input[type=radio]:checked ~ .check {
     border: 1px solid #E4007D;
