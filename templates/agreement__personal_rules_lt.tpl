@@ -9,9 +9,13 @@
     Žinau, kad turiu tokias su asmens duomenų tvarkymo susijusias teises kaip:
 </p>
 <ul>
-    <li>teisė būti informuotu teisė atšaukti sutikimą</li>
-    <li>teisė susipažinti su duomenimis teisė apriboti duomenų tvarkymą</li>
-    <li>teisė į asmens duomenų ištaisymą teisė į duomenų perkeliamumą</li>
-    <li>teisė į asmens duomenų ištrynimą teisė nesutikti</li>
+    <li>teisė būti informuotu</li>
+    <li>teisė atšaukti sutikimą</li>
+    <li>teisė susipažinti su duomenimis</li>
+    <li>teisė apriboti duomenų tvarkymą</li>
+    <li>teisė į asmens duomenų ištaisymą</li>
+    <li>teisė į duomenų perkeliamumą</li>
+    <li>teisė į asmens duomenų ištrynimą</li>
+    <li>teisė nesutikti</li>
     <li>teisės į automatinį sprendimų priėmimą ir profiliavimą</li>
 </ul>
