@@ -538,6 +538,12 @@ input[type=radio]:checked ~ .check::before{
     font-size: 14px;
     color: #797575;
 }
+.m_user_persoanl_data_arg{
+    margin-bottom: 16px;
+}
 #pers_agr_rul_conf{
     margin-right: 5px;
+}
+.mobile_register_prolog{
+    color: #333333;
 }

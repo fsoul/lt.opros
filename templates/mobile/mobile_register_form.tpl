@@ -25,6 +25,9 @@
 <!-- End Facebook Pixel Code -->
 
 <div class="reg_form_wrapper m_form">
+    <div class="mobile_register_prolog">
+        <%e_page_cms:head_prolog%>
+    </div>
     <p class="head_title"><%e_cms_cons:head_title%></p>
     <p class="head_title_hint"><%e_cms_cons:head_title_hint%></p>
     <form method="POST" autocomplete="off">
@@ -156,11 +159,14 @@
                         <textarea name="dic_know_about_us_other" id="know_about_another" placeholder="<%e_cms_cons:enter_text%>"></textarea>
                     </div>
                 </div>
-                <div class="g_captcha inp_wrap">
-                    <div class="g-recaptcha" data-sitekey="6LdxTikUAAAAAFm4XSMA6R-gJuzYqCP4U5nY2gGI" data-callback="imNotARobot"></div>
-                </div>
                 <div class="user_agreement">
                     <%include:agreement_rules_<%iif::language,LT,lt,ru%>%>
+                </div>
+                <div class="user_personal_data_agreement m_user_persoanl_data_arg">
+                    <%include:agreement__personal_rules_lt%>
+                </div>
+                <div class="g_captcha inp_wrap">
+                    <div class="g-recaptcha" data-sitekey="6LdxTikUAAAAAFm4XSMA6R-gJuzYqCP4U5nY2gGI" data-callback="imNotARobot"></div>
                 </div>
             </div>
             <div class="submit_btn">

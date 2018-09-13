@@ -33,6 +33,12 @@
         };
         $('.user_agreement p br').remove();
 
+        $('input[type="checkbox"]').change(function(){
+            if(this.checked){
+                $('.g_captcha.inp_wrap .warning').remove();
+            }
+        });
+
         var $know_about = $('#know_about');
         var $searchInput = $('#search_inp');
 
@@ -476,15 +482,14 @@
             }
         });
 
-        $('#agr_rul_conf').click(function () {
-            $('.submit_btn').find('.warning').remove();
-        });
+        // $('#agr_rul_conf').click(function () {
+        //     $('.submit_btn').find('.warning').remove();
+        // });
     };
 
     var imNotARobot = function () {
         var response = grecaptcha.getResponse();
         var emptyFields = [];
-        $('#search_inp').removeClass('warning');
         $('.reg_form_wrapper .inp').each(function(indx, el){
             if(!el.value){
                 emptyFields.push(el);

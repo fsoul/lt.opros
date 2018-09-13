@@ -147,7 +147,7 @@
 
             if(key == 'reg_phone'){
                 var phone = $('#reg_phone').val();
-                obj[key] = phone.substr(3, phone.length);
+                obj[key] = phone; //.substr(3, phone.length);
             }else{
                 obj[key] = target.value;
             }
@@ -160,7 +160,7 @@
         }
 
         function phonePreValidate(value){
-            return (value.length >= 8 && value.length <= 12);
+            return /^((\+)+([0-9]){8,12})$/g.test(value);;
         }
 
         var validator = {
@@ -449,9 +449,9 @@
 
         $('#reg_submit_btn').on('click', function (e) {
             e.preventDefault();
-            if($('#tns_id').val() == '') $('#tns_id').val(window["IDCore"].getId());
+            if($('#tns_id').val() === '') $('#tns_id').val(window["IDCore"].getId());
 
-            if($city.val() == '...' && $city.is(":visible")){
+            if($city.val() === '...' && $city.is(":visible")){
                 validator.messages.push(emptyResidence);
                 validator.showResult(e.target);
                 $($city).addClass('warning');
@@ -459,7 +459,7 @@
                 e.preventDefault();
             }
 
-            if($know_about.val() == '...' && $know_about.is(":visible")){
+            if($know_about.val() === '...' && $know_about.is(":visible")){
                 $($know_about).addClass('warning');
                 $($know_about).closest('.inp_field').append('<div class="warning_i" style="background: url(/css/images/redesign/warning.png)no-repeat center;"></div>');
                 e.preventDefault();
@@ -479,8 +479,8 @@
                 }
             });
 
-            if (warnings == 0 && emptyFields.length == 0) {
-                if(steps.current == 1){
+            if (warnings === 0 && emptyFields.length === 0) {
+                if(steps.current === 1){
                     var isCheckedGender = $('input[name="sex"]').is(':checked');
                     $(e.target).closest('.submit_btn').find('.m_error_flag').remove();
                     if(!isCheckedGender){
@@ -491,22 +491,25 @@
                         $(e.target).text(steps.btnValues[steps.current]);
                     }
 
-                }else if(steps.current == 2){
+                }else if(steps.current === 2){
 
                     var $agreeRules = $('.user_agreement');
-                    var isAgreeRulesChecked = $('#agr_rul_conf').prop('checked') == undefined ? true : $('#agr_rul_conf').prop('checked');
+                    var isAgreeRulesChecked = $('#agr_rul_conf').is(':checked');
+                    var isPersonalDataChecked = $('#pers_agr_rul_conf').is(':checked');
                     var isValidCaptcha = !!(grecaptcha.getResponse()).length;
                     var isNoWarnings = !warnings;
                     var isEmptyNotExist = !emptyFields.length;
 
-                    if (isEmptyNotExist && isNoWarnings && isAgreeRulesChecked && isValidCaptcha) {
+                    if (isEmptyNotExist && isNoWarnings && isAgreeRulesChecked && isPersonalDataChecked && isValidCaptcha) {
                         $("form").submit();
+                        $(this).attr("disabled", true);
+                        return false;
                     } else {
                         $(e.target).closest('.submit_btn').find('.m_error_flag').remove();
                         $(e.target).closest('.submit_btn').prepend('<div class="m_error_flag warning"><div class="triangle_bottom"></div>' + msg + '</div>');
-                        if(!isAgreeRulesChecked){
-                            $agreeRules.prepend('<div class="m_error_flag warning"><div class="triangle_bottom"></div>' + agrMsg + '</div>');
-                        }
+                        // if(!isAgreeRulesChecked){
+                        //     $agreeRules.prepend('<div class="m_error_flag warning"><div class="triangle_bottom"></div>' + agrMsg + '</div>');
+                        // }
                     }
                 }else{
                     $('.section_wrap').hide();
@@ -514,7 +517,7 @@
                     $(e.target).text(steps.btnValues[steps.current]);
                 }
                 $('html, body').animate({
-                    scrollTop: $(".m_form").offset().top
+                    scrollTop: $(".head_title").offset().top
                 }, 500);
             }else{
                 $(e.target).closest('.submit_btn').find('.m_error_flag').remove();

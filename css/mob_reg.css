@@ -32,10 +32,6 @@ input[type="text"], input[type="password"], textarea, select {
     color: #858585;
 }
 
-select {
-    background-color: rgb(250, 255, 189) !important;
-}
-
 #mob_reg .inputTxt, #points_convertion_type{
     font-size: 16px;
 }
