@@ -7,6 +7,8 @@
 
 <%include:page_error%>
 
+<%include:<%iif:<%ap_process_check_sid%>,1,facebook_pixel%>%>
+
 <form action="/LT/Authorization.html" method="post" name="internal_login_form" id="internal_login_form">
 
 <input type="hidden" name="action" value="access_package.authorize" />

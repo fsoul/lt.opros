@@ -277,6 +277,13 @@ function ap_process_reffer_form()
     }
 }
 
+function ap_process_check_sid()
+{
+    $isSid = $_SESSION['sid'] ? 1 : 0;
+    unset($_SESSION['sid']);
+    return $isSid;
+}
+
 function ap_process_respondent_activate()
 {
     if (	array_key_exists('sid', $_GET) &&
@@ -298,6 +305,7 @@ function ap_process_respondent_activate()
 
                     $url = get_href(68);
 
+                    $_SESSION['sid'] = $_GET['sid'];
                     header('Location: '.$url);
                     exit;
                 }
