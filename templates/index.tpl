@@ -10,7 +10,7 @@
 <div role="main">
 
 <div class="a-feature grid-12" style="text-align: center;">
-    <%media_insert:images,index_splash%>
+    <img width="850" src="../img/coffee_shop.jpg" alt="index pic">
 </div>
 
 <div>
@@ -62,7 +62,7 @@
       <div class="content" style="overflow: hidden;">
 <%ap_homepage_news_list:2%>
 <%text_edit_cms_cons:Read all last news%>
-        <a href="<%get_href:news%>" class="system_button"><%cms_cons:Read all last news%></a>
+        <a href="<%get_href:129%>" class="system_button"><%cms_cons:Read all last news%></a>
       </div>
     </div>
 
@@ -83,6 +83,9 @@
       <div class="content">
 <%longtext_edit_cms:index_block_3_top<%iif:<%ap_is_respondent_authorized%>,1,_for_authorized%>%>
 <%cms:index_block_3_top<%iif:<%ap_is_respondent_authorized%>,1,_for_authorized%>%>
+          <p>
+              <a href="https://www.panel.kantartns.lt/LT/FAQ.html#part2" class="system_button">Motyvacijos sistema</a>
+          </p>
       </div>
     </div>
 
@@ -90,9 +93,11 @@
       <div class="content" style="overflow: hidden;">
 <%include:<%iif:<%ap_is_respondent_authorized%>,1,last_projects_on_homepage%>%>
 <%e_cms:index_block_3_bottom<%iif:<%ap_is_respondent_authorized%>,1,_for_authorized%>%>
+          <p>
+              <a href="<%get_href:47%>" class="system_button">Registracijos forma</a>
+          </p>
       </div>
     </div>
-
   </div>
 
 </div>
