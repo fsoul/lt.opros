@@ -9,6 +9,8 @@
 
 <%include:cookie_js_short%>
 
+<%include:<%iif:<%ap_process_check_sid%>,1,facebook_pixel%>%>
+
 <script type="text/javascript">
   function try_login(p_email, p_form){
     document.forms[p_form].submit();
