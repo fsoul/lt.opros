@@ -563,3 +563,6 @@ input[type=radio]:checked ~ .check::before{
 .mobile_register_prolog{
     color: #333333;
 }
+.index_tab_text{
+    margin: 20px 5px 0 0;
+}

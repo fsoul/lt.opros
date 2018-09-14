@@ -2,7 +2,7 @@
 
 <%include:header_internal%>
 
-<%include:<%iif:<%ap_process_respondent_activate%>,1,internal_div,incorrect_sid%>%>
+<%include:<%iif:<%ap_process_respondent_activate%>,1,internal_facebook_pixel_div,incorrect_sid%>%>
 
 <%longtext_edit_page_cms:email_subject%>
 <%longtext_edit_page_cms:email_body%>
