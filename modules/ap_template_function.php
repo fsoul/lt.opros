@@ -464,11 +464,11 @@ function ap_news_list_other($current_page)
 
     if (count($ar)==0)
     {
-        $res = '';
+        $res = 'Šiuo metu naujienų nėra';
     }
     else
     {
-//$current_page = null;
+
         $res = parse_array_to_html($ar, 'int_news_list_other_row', $current_page, NEWS_ROWS_ON_PAGE, 'survey_history_navigation', NEWS_PAGES_IN_BLOCK, getValueOf('t'));
 
         $res =	parse('int_news_list_other_top').

@@ -6,7 +6,7 @@
 <div id="iPageOutline" class="container container-12">
     <header class="primary grid-12">
         <h1 class="logo">
-            <a href="/" title="TNS"><img id="test_logo" src="/img/tns-logo.jpg" alt="TNS"></a>
+            <a href="<%get_href:127%>" title="TNS"><img id="test_logo" src="/img/tns-logo.jpg" alt="TNS"></a>
         </h1>
         <ul class="navigation">
             <%get_menu_level:10,1,templates/menu/top_active.tpl,templates/menu/top_inactive.tpl,templates/menu/top_separator.tpl,<%ap_is_respondent_authorized%>%>

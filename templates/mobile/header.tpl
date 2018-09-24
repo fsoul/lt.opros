@@ -115,8 +115,17 @@
             $('.home li a').text('\u0413\u043b\u0430\u0432\u043d\u0430\u044f');
         }
 
+        $('#nav1').find("ul:first").remove();
+        $('#nav1').prepend('<div class="mobile_logout"><a class="enter" href="https://www.panel.kantartns.lt/LT/index.html">Titulinis</a></div>');
+
         $('.parent').click(function(e){
             var $this = $(e.target);
+
+            if($this.html() === 'Titulinis'){
+                debugger;
+
+            }
+
             var $child = $this.siblings('.child');
             $('.parent').removeClass('open');
             $('.child').hide();
