@@ -93,12 +93,9 @@ function ap_process_points_convertion_form()
             if (	$_POST['points_convertion_type'] == 'replenishment_webmoney' &&
                 !check_webmoney_purse_number($_POST['purse_number'])
             ){
-//logTo(ap_get_respondent_email(), 'purse_number.txt');
-//logTo('$error 1', 'purse_number.txt');
-//logTo(print_r($error, true), 'purse_number.txt');
+
                 $error['purse_number'] = e_cms_cons('Enter purse number in correct format');
-//logTo('$error 2', 'purse_number.txt');
-//logTo(print_r($error, true), 'purse_number.txt');
+
             }
 
             if (	is_array($error) &&
@@ -114,12 +111,10 @@ function ap_process_points_convertion_form()
                         strpos($error['page_error'], $error[$field_name])===false
                     )
                     {
-//logTo('$field_name', 'purse_number.txt');
-//logTo($field_name, 'purse_number.txt');
+
                         $error['page_error'].= '<br/>'.$error[$field_name];
                     }
-//logTo('$error 3', 'purse_number.txt');
-//logTo(print_r($error, true), 'purse_number.txt');
+
                 }
 
                 if (	array_key_exists('password', $error) &&
@@ -142,7 +137,6 @@ function ap_process_points_convertion_form()
                     foreach($ar_form_fields[$_POST['points_convertion_type']] as $f_name){
                         $ar_purpose[] = trim($_POST[$f_name]);
                     }
-//var_dump($_POST);
                     $purpose = implode(', ', $ar_purpose);
 
                     $ar_mail = array(
@@ -181,12 +175,8 @@ function ap_process_points_convertion_form()
                         $purpose
                     );
 
-//var_dump($res);
                     $msg = parse_array_to_html($ar_mail_res, 'points_convertion_mail');
-//echo $msg;
-//exit;
-//					$res = mail_respondent_smtp(CONVERTION_SUBMIT_EMAIL, CONVERTION_SUBMIT_SUBJECT, $msg, null, null, null, null, true);
-//var_dump($res);
+					//$res = mail_respondent_smtp(CONVERTION_SUBMIT_EMAIL, CONVERTION_SUBMIT_SUBJECT, $msg, null, null, null, null, true);
                 }
             }
         }
@@ -236,6 +226,13 @@ function get_reffer_link()
     return get_href('forma_reestracii').uri_separator().'reffer_email_='.ap_get_respondent_email();
 }
 
+function ap_process_check_referrer(){
+    $res = 0;
+    if($_GET['reffer_email_']){
+        return 1;
+    }
+    return $res;
+}
 
 function ap_process_reffer_form()
 {
@@ -282,6 +279,13 @@ function ap_process_check_sid()
     $isSid = $_SESSION['sid'] ? 1 : 0;
     unset($_SESSION['sid']);
     return $isSid;
+}
+
+function ap_process_mobile_referr_redirect()
+{
+    if($_GET['reffer_email_']){
+        header('Location: http://opros.tns-ua.com/UA/registration.html?reffer_email_=' . $_GET['reffer_email_']);
+    }
 }
 
 function ap_process_respondent_activate()
@@ -424,11 +428,7 @@ function ap_email_change(){
         $resp = ap_resp_init();
 
         $res = $resp->email_change($_POST['respondent_id'], $_POST['new_email']);
-        //$res['response_code'] = 000;
-//        echo '<pre>';
-//            print_r($res);
-//        echo '</pre>';
-//        die('end');
+
         global $error;
         $error = 0;
 
@@ -752,14 +752,11 @@ function ap_check_respondent_fields()
 
 function check_phone($phone_field_name, &$error, $ar_allowed_phone_codes=null)
 {
-//var_dump($phone_field_name);
     $phone = $_POST[$phone_field_name];
-//var_dump($phone);
     $res = false;
 
     if (preg_match("/^([0-9]){10}$/", $phone))
     {
-//vdump($ar_allowed_phone_codes);
         if (	empty($ar_allowed_phone_codes)
             ||
             is_array($ar_allowed_phone_codes) &&
@@ -771,7 +768,6 @@ function check_phone($phone_field_name, &$error, $ar_allowed_phone_codes=null)
         else
         {
             $error[$phone_field_name] = e_cms_cons('Unknown provider code');
-//var_dump($error);
         }
     }
 
@@ -780,23 +776,17 @@ function check_phone($phone_field_name, &$error, $ar_allowed_phone_codes=null)
 
 function check_webmoney_purse_number($purse)
 {
-//logTo('$purse', 'purse_number.txt');
-//logTo($purse, 'purse_number.txt');
     $res = false;
 
     if (preg_match("/^U([0-9]){12}$/", $purse))
     {
         $numbers = ltrim($purse, 'U');
-//logTo('$numbers', 'purse_number.txt');
-//logTo($numbers, 'purse_number.txt');
 
         if (strlen($numbers) == 12)
         {
             $res = true;
         }
     }
-//logTo('$res', 'purse_number.txt');
-//logTo($res, 'purse_number.txt');
 
     return $res;
 }
@@ -1026,17 +1016,6 @@ function ap_process_recover_access(){
     }
 }
 function check_cell_phone($num){
-    /*if(is_numeric($num) && strlen($num) == 10){
-        $phone = $num;
-    }else{
-        $unmaskNum = preg_replace("/[\s-]+/", "", $num);
-        if(is_numeric($unmaskNum)){
-            $cutNum = substr($unmaskNum, 3, strlen($unmaskNum) - 1);
-            $phone = check_cell_phone($cutNum);
-        }else{
-            return false;
-        }
-    }*/
 
     if(is_numeric($num)){
         $phone = preg_replace("/\+|[\s-]+/", "", $num);
@@ -1101,70 +1080,12 @@ function ap_process_new_registration_form(){
         }else {
             $resp = ap_resp_init();
             $dump['noErrors'] = 'true';
-            /*
-            $_POST['email'] = trim($_POST['email']);
-            $_POST['reffer_email'] = trim($_POST['reffer_email']);
-
-            $resp_in_db_id_city = $resp_in_db_id_cell = false;
-
-            if (array_key_exists('cell_phone_number_', $_POST) && !empty($_POST['cell_phone_number_'])){
-                $resp_in_db_id_cell = !$resp->is_phone_available($_POST['cell_phone_number_']);
-            }
-
-            if ($res = $resp->Check_If_Email_Exists($_POST['email_'])){
-                if (!array_key_exists('page_error', $error)){
-                    $error['page_error'] = '';
-                }
-                $error['page_error'].= cons('User with such e-mail already exists').'<br/>';
-                $error['email'] = '1';
-            }
-            elseif (!empty($_POST['reffer_email_'])
-                && !($res = $resp->Check_If_Email_Exists($_POST['reffer_email_']))
-            ){
-                if (!array_key_exists('page_error', $error)){
-                    $error['page_error'] = '';
-                }
-
-                $error['page_error'].= $error['reffer_email_'] = e_cms_cons('There is no reffer with such e-mail');
-            }
-            elseif ($resp_in_db_id_city || $resp_in_db_id_cell){
-                if ($resp_in_db_id_city){
-                    if (!array_key_exists('page_error', $error)){
-                        $error['page_error'] = '';
-                    }
-                    $error['page_error'].= e_cms_cons('User with such city phone already exists').'<br/>';
-                    $error['city_phone_number_'] = '1';
-                }
-
-                if ($resp_in_db_id_cell){
-                    if (!array_key_exists('page_error', $error))
-                    {
-                        $error['page_error'] = '';
-                    }
-
-                    $error['page_error'].= e_cms_cons('User with such cell phone already exists').'<br/>';
-                    $error['cell_phone_number_'] = '1';
-                }
-            }
-            */
-
-//            var_dump($_POST['last_name']);
-//            var_dump($_POST['first_name']);
-//            var_dump($_POST['sex']);
-//            var_dump($date);
-//            var_dump($_POST['cell_phone_number']);
-//            var_dump($_POST['email']);
-//            var_dump($_POST['city']);
-//            var_dump(null);
-//            var_dump(null);
-//            var_dump(null);
-//            var_dump( $_POST['dic_know_about_us_id']);
-//            var_dump( $_POST['dic_know_about_us_other']);
-//            var_dump(null);
-//
-//            die();
 
             if (count($error) == 0){
+                $parent_respondent_email = null;
+                if(intval($_POST['dic_know_about_us_id']) === REFER_ID){
+                    $parent_respondent_email = $_POST['refer_email'];
+                }
 
                 $dbRequest = initHttpReq();
                 $res = $dbRequest -> onl_respondent_ins(
@@ -1175,7 +1096,7 @@ function ap_process_new_registration_form(){
                     $phone,
                     $_POST['email'],
                     $_POST['city'],
-                    null,
+                    $parent_respondent_email,
                     null,
                     (array_key_exists('tns_id', $_POST) ? $_POST['tns_id'] : null),
                     $_POST['dic_know_about_us_id'],
@@ -1332,7 +1253,6 @@ function ap_process_edit_profile_form()
             {
                 $info = $resp->Get_Info($respondent_id);
             }
-//vdump($info, '$info');
         }
     }
 
@@ -1344,7 +1264,6 @@ function ap_process_edit_profile_form()
             {
                 global $$key;
                 $$key = $val;
-//vdump($$key, $key);
             }
         }
 
@@ -1410,7 +1329,6 @@ function ap_process_password_update_form()
 
         if (count($error)>0)
         {
-//vdump($error, '$error');
             if ($error['new_password'] == PASSWORD_NOT_MUTCH_RULES)
             {
                 $error['page_error'.$page_error_sfx] = longtext_edit_cms('password_rules_error_header').cms('password_rules_error_header').longtext_edit_cms('password_rules_error').cms('password_rules_error');
@@ -1419,7 +1337,6 @@ function ap_process_password_update_form()
             {
                 $error['page_error'.$page_error_sfx] = page_cms('page_error');
             }
-//vdump($error, '$error 2');
         }
         else
         {

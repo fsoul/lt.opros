@@ -44,15 +44,23 @@
 
         var $know_about = $('#know_about');
         var $searchInput = $('#search_inp');
+        var $referEmail = $('#refer_email');
 
         $know_about.change(function(e){
             $(e.target).css('color', '#333');
             validator.showResult(e.target);
-            if(e.target.value == '-'){
+            if(e.target.value === '-'){
                 $('.inp_textarea').removeClass('invis');
             }else{
                 $('.inp_textarea').addClass('invis');
             }
+
+            if(parseInt(e.target.value) === 2) {
+                $referEmail.parent().removeClass('invis');
+            }else{
+                $referEmail.parent().addClass('invis');
+            }
+
             $(e.target).trigger('blur');
         });
 
@@ -74,7 +82,7 @@
         });
 
         $city.blur(function (e) {
-            if(e.target.value == '...' ){
+            if(e.target.value === '...' ){
                 validator.messages.push(emptyResidence);
                 validator.showResult(e.target);
                 $(e.target).addClass('warning');
@@ -306,7 +314,8 @@
             reg_birthdate: "isValidDate",
             reg_phone: "isAllowedPhone",
             reg_residence: "isNonEmpty",
-            reg_how: "isNonEmpty"
+            reg_how: "isNonEmpty",
+            refer_email: "isEmail"
         };
 
         validator.types.isValidOldPass = {
@@ -325,6 +334,17 @@
                 });
             },
             instructions: errors.old_pass_msg
+        };
+
+        validator.types.isEmail = {
+            validate: function (value) {
+                if(!value) return true;
+
+                if(value.toLowerCase() === ($('#reg_email').val()).toLowerCase()) return false;
+
+                var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+                return re.test(String(value).toLowerCase());
+            }
         };
 
         validator.types.isEmailExist = {
@@ -493,7 +513,7 @@
     var imNotARobot = function () {
         var response = grecaptcha.getResponse();
         var emptyFields = [];
-        $('.reg_form_wrapper .inp').each(function(indx, el){
+        $('.reg_form_wrapper .inp').not('#refer_email').each(function(indx, el){
             if(!el.value){
                 emptyFields.push(el);
             }

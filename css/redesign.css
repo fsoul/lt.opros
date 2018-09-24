@@ -422,6 +422,11 @@ input[type=radio]:checked ~ .check::before{
     position: relative;
     height: 38px;
 }
+.m_form .warning_i.i_valid.referr_valid{
+    top: 50%;
+    margin-top: -27px;
+    right: -22px;
+}
 .m_form .warning_i {
     top: 50%;
     margin-top: -12px;
