@@ -24,6 +24,7 @@
 
         var $know_about = $('#know_about');
         var $searchInput = $('#search_inp');
+        var $referEmail = $('#refer_email');
         
         $know_about.change(function(e){
             $(e.target).css('color', '#333');
@@ -33,11 +34,18 @@
             }else{
                 $('.inp_textarea').addClass('invis');
             }
+
+            if(parseInt(e.target.value) === 2) {
+                $referEmail.parent().removeClass('invis');
+            }else{
+                $referEmail.parent().addClass('invis');
+            }
+
             $(e.target).trigger('blur');
         });
 
         $know_about.blur(function (e) {
-            if(e.target.value == '...'){
+            if(e.target.value === '...'){
                 $(e.target).addClass('warning');
                 $(e.target).closest('.inp_field').prepend('<div class="warning_i" style="background: url(/css/images/redesign/warning.png)no-repeat center;"></div>');
             }else{
@@ -185,8 +193,8 @@
                                 message: "No handler to validate type " + type
                             };
                         }
-                        if(type == 'isEmailExist' || type == 'isAllowedPhone'){
-                            var preValidate = type == 'isEmailExist' ? emailPreValidate(data[i]): phonePreValidate(data[i]);
+                        if(type === 'isEmailExist' || type === 'isAllowedPhone'){
+                            var preValidate = type === 'isEmailExist' ? emailPreValidate(data[i]): phonePreValidate(data[i]);
                             if(preValidate){
                                 checker.validate(data[i]).then(function (res) {
                                     this.result_ok = JSON.parse(res);
@@ -203,7 +211,7 @@
                                 this.messages.push(msg);
                                 self.showResult(target);
                             }
-                        }else if(type == 'isValidOldPass' ) {
+                        }else if(type === 'isValidOldPass' ) {
                             checker.validate(data[i]).then(function (res) {
                                 this.result_ok = JSON.parse(res);
                                 resp = this.result_ok.response;
@@ -268,7 +276,8 @@
             reg_birthdate: "isValidDate",
             reg_phone: "isAllowedPhone",
             reg_residence: "isNonEmpty",
-            reg_how: "isNonEmpty"
+            reg_how: "isNonEmpty",
+            refer_email: "isEmail"
         };
 
         validator.types.isValidOldPass = {
@@ -287,6 +296,17 @@
                 });
             },
             instructions: errors.old_pass_msg
+        };
+
+        validator.types.isEmail = {
+            validate: function (value) {
+                if(!value) return true;
+
+                if(value.toLowerCase() === ($('#reg_email').val()).toLowerCase()) return false;
+
+                var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+                return re.test(String(value).toLowerCase());
+            }
         };
 
         validator.types.isEmailExist = {

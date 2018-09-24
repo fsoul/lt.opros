@@ -1,6 +1,7 @@
 <%set_allowed_uri_params_list:reffer_email_%>
 
 <%ap_process_registration_form%>
+<%ap_process_mobile_referr_redirect%>
 
 <%include:header_internal_1%>
 

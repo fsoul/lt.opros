@@ -138,6 +138,9 @@
                         </select>
                     </div>
                     <div class="inp_textarea invis">
+                        <input value="" id="refer_email" class="inp" name="refer_email" type="text" placeholder="Friend's Email">
+                    </div>
+                    <div class="inp_textarea invis">
                         <textarea name="dic_know_about_us_other" id="know_about_another" placeholder="<%e_cms_cons:enter_text%>"></textarea>
                     </div>
                 </div>
@@ -157,6 +160,7 @@
         </div>
     </form>
 </div>
+<%include:<%iif:<%ap_process_check_referrer%>,1,fix_refer%>%>
 <%longtext_edit_page_cms:email_subject%>
 <%longtext_edit_page_cms:email_body%>
 <%include:footer%>
