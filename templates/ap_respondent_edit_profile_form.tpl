@@ -53,6 +53,8 @@
     </div>
 </div>
 
+<%include:reffer_form%>
+
 <%text_edit_cms_cons:Unsubscribe%>
 <%text_edit_cms_cons:Delete registration%>
 <%text_edit_cms_cons:Are you sure you unsubscribe%>

@@ -1,7 +1,5 @@
 <%ap_process_reffer_form%>
 
-<!--<a name="reffer">&nbsp;</a>-->
-
 <form action="#reffer" method="post" name="reffer">
 
     <div class="int">
@@ -18,37 +16,19 @@
                 <div>
                     <%include:page_error%>
                     <table id="reffer_form" border="0">
-                        <tr>
+                        <!-- <tr>
                             <td align="left" colspan="5" collspan="5">
                                 <%text_edit_cms_cons:You can invite friends%><%cms_cons:You can invite friends%>
                             </td>
                         </tr>
-                        <!--
-                          <tr class="narrow_text">
-                            <td align="center" colspan="5" collspan="5">
-                            <%text_edit_cms_cons:You can invite friends%><%cms_cons:You can invite friends%>
-                            <%text_edit_cms_cons:Your reffer link%><%cms_cons:Your reffer link%>:</td>
-                          </tr>
-
-                          <tr class="narrow_text">
-                            <td align="center" colspan="5" collspan="5"><a href="<%get_reffer_link%>"><%get_reffer_link%></a></td>
-                          </tr>
                         -->
-                        <tr class="narrow_text">
-                            <td align="center" colspan="5" collspan="5">&nbsp;</td>
-                        </tr>
 
                         <tr class="narrow_text">
                             <td align="right"><%e_cms_cons:Invitation to email%></td>
                             <td>&nbsp;</td>
                             <td>
                                 <%text_edit_cms_cons:Enter e-mail in standart format%>
-                                <input
-                                        type="text"
-                                        class="inp <%iif:<%getError:invitation_to_email%>,,,warning%>"
-                                        name="invitation_to_email"
-                                        value="<%:invitation_to_email%>"
-                                />
+                                <input type="text" class="inp" name="invitation_to_email" value=""/>
                             </td>
                             <td>&nbsp;</td>
                             <td>
@@ -62,10 +42,8 @@
 
                     </table>
 
-
                     <%text_edit_cms:reffer_email_subject%>
                     <%html_edit_cms:reffer_email_body%>
-
 
                 </div>
             </div>
@@ -75,4 +53,3 @@
     </div>
 
 </form>
-
