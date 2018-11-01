@@ -401,7 +401,7 @@ function ap_survey_history($current_page=1){
     $ar = $ar['complete_project_list'];
 
     foreach($ar as $i => $val){
-        $ar[$i]['survey_title'] = ($language == 'UA'?$ar[$i]['project_name_ukr']:$ar[$i]['project_name']);
+        $ar[$i]['survey_title'] = $ar[$i]['project_name_ukr'];
         $ar[$i]['survey_title'] = iconv('utf-8','windows-1251',$ar[$i]['survey_title']);
         $ar[$i]['survey_date'] = date('d.m.Y',strtotime( $ar[$i]['complete_date'] ));
         $ar[$i]['survey_points'] = $ar[$i]['point_num'];
@@ -431,6 +431,15 @@ function show_points(){
 
     $res = parse_array_to_html($ar, 'show_points');
 
+    return $res;
+}
+
+function show_points_in_row(){
+    $dbRequest = initHttpReq();
+    $ar = $dbRequest ->complete_project_list(ap_get_respondent_id());
+    $ar = $ar['complete_total'];
+
+    $res = "Turimi taškai: " . $ar[0]['earned_point_num'] . "<span class='show_points_in_row'>Taškai krepšelyje: " . $ar[0]['spent_point_num']. "</span><span class='show_points_in_row'>Liko taškų: " . $ar[0]['balance_point_num'] . "</span>";
     return $res;
 }
 
