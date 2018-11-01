@@ -7,6 +7,11 @@
 <%include:page_error%>
 
 <div class="reg_form_wrapper m_form">
+    <div class="m_visuals">
+        <img src="/img/visuals/RegForm_1_Step_Sign_up.jpg" alt="">
+        <img src="/img/visuals/RegForm_2_Step_Plugin.jpg" alt="">
+        <img src="/img/visuals/RegForm_3_Step_Profile.jpg" alt="">
+    </div>
     <div class="mobile_register_prolog">
         <%e_page_cms:head_prolog%>
     </div>

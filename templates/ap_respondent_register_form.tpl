@@ -9,6 +9,11 @@
 <%include:page_error%>
 
 <div class="reg_form_wrapper">
+    <div class="visuals">
+        <img class="desktop" src="/img/visuals/RegForm_1_Step_Sign_up.jpg" alt="">
+        <img class="desktop" src="/img/visuals/RegForm_2_Step_Plugin.jpg" alt="">
+        <img class="desktop" src="/img/visuals/RegForm_3_Step_Profile.jpg" alt="">
+    </div>
     <div>
         <%e_page_cms:head_prolog%>
     </div>
@@ -158,4 +163,3 @@
 <%longtext_edit_page_cms:email_subject%>
 <%longtext_edit_page_cms:email_body%>
 <%include:footer%>
-

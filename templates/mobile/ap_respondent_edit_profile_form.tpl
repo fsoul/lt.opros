@@ -144,7 +144,7 @@
             <div class="int_b_content">
                 <div class="mob-form">
                     <p><%text_edit_cms_cons:You can invite friends%><%cms_cons:You can invite friends%></p>
-                    <p class="nombtm"><%e_cms_cons:Invitation to email%>:</p>
+                    <!-- <p class="nombtm"><%e_cms_cons:Invitation to email%>:</p> -->
                     <%text_edit_cms_cons:Enter e-mail in standart format%>
                     <p class="nomargin"><input
                                 type="text"

@@ -571,3 +571,26 @@ input[type=radio]:checked ~ .check::before{
 .index_tab_text{
     margin: 20px 5px 0 0;
 }
+.m_visuals img{
+    width: 100px;
+}
+.visuals  .desktop{
+    width: 195px;
+}
+.reg_success_visual{
+    width: 100%
+}
+@media (min-width: 468px) {
+    .visuals  img{
+        width: 195px;
+    }
+}
+.show_points_in_row{
+    padding-left: 100px;
+}
+.motivation_table th{
+    background-color: #f7f7f7;
+}
+.survey_history th, .survey_history td {
+    font-size: 12px;
+}

@@ -490,7 +490,7 @@
             var $section = $('.section_wrap[data-section=' + steps.current + ']');
             var warnings = $section.find('.warning').length;
             var emptyFields = [];
-            var sectionRequiredFields = $section.find('.inp');
+            var sectionRequiredFields = $section.find('.inp').not('#refer_email');
             var msg = "<%e_cms_cons:checkAllData%>";
 
             $.each(sectionRequiredFields, function(indx, el) {

@@ -262,3 +262,7 @@ label.error-input:before {
     color: #222;
 }
 /* END confirmation */
+
+.visuals img{
+    width: 100px;
+}
